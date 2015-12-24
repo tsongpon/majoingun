@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>majoingun</name>
-	<description>Registraton system</description>
+	<description>Registration system</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
