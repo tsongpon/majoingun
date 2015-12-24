@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+    <meta charset='utf-8'>
+    <title>Ractive test</title>
+</head>
+
+<body>
+<h1>Ractive test</h1>
+
+<div id='container'>
+</div>
+
+<script src='/majoingun/js/ractive.min.js'></script>
+<script src='/majoingun/js/ractive-events-tap.min.js'></script>
+<script src='/majoingun/js/reqwest.min.js'></script>
+
+<script>
+    var ractive;
+
+    //use reqwest to make ajax request(template request for this case), more info : https://github.com/ded/reqwest/blob/master/README.md
+    reqwest('/majoingun/register.from.component.html').then(function (template) {
+        ractive = new Ractive({
+            el: '#container',
+            template: template,
+            data: {
+            }
+        });
+
+        ractive.on('submit', function(event) {
+            alert(this.get('name') + " is saved");
+            event.original.preventDefault();
+            ractive.reset();
+        });
+    });
+
+</script>
+</body>
+</html>
