@@ -11,4 +11,9 @@ public class ExampleController {
     public String index(){
         return "index";
     }
+
+    @RequestMapping(value = "/api/majoingun/register", method = RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
 }
