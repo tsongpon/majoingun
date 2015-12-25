@@ -16,4 +16,9 @@ public class ExampleController {
 
         return "index";
     }
+
+    @RequestMapping(value = "/api/majoingun/register", method = RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
 }
