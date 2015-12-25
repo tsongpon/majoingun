@@ -62,9 +62,20 @@
   font-size: 13px;
 }
 
-.mdl-color-text--grey-500 {
-  /*width: inherit;*/
-  text-align: -webkit-center;
+/*.mdl-color-text--grey-500 {*/
+  /*!*width: inherit;*!*/
+  /*text-align: -webkit-center;*/
+/*}*/
+.mdl-textfield__input_other{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    font-size: 16px;
+    margin: 0;
+    padding: 4px 0;
+    width: 250px;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
 }
 
 .mdl-textfield {
