@@ -28,33 +28,24 @@
         <!--
         <link rel="canonical" href="http://www.example.com/">
         -->
-
-        <link href="/majoingun/fonts/css" rel="stylesheet" type="text/css">
-        <link href="/majoingun/fonts/icon" rel="stylesheet">
-        <link rel="stylesheet" href="/majoingun/css/material.min.css">
-        <link rel="stylesheet" href="/majoingun/css/styles.css">
-
-        <script src="/majoingun/js/material.min.js"></script>
     </head>
 
     <body>
-        <!--<h1>Ractive test</h1>-->
-
         <div id='container'/>
         </div>
 
         <script src='/majoingun/js/ractive.min.js'></script>
         <script src='/majoingun/js/ractive-events-tap.min.js'></script>
-        <script src='/majoingun/js/reqwest.min.js'></script>
-
+        <!--<script src='/majoingun/js/reqwest.min.js'></script>-->
+        <script src='/majoingun/js/ractive-load.min.js'></script>
         <script>
             var ractive;
             var universities = [ 'Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University' ];
             //use reqwest to make ajax request(template request for this case), more info : https://github.com/ded/reqwest/blob/master/README.md
-            reqwest('/majoingun/register.from.component.html').then(function (template) {
-                ractive = new Ractive({
+            Ractive.load('register.from.component.html').then(function (Register) {
+                ractive = new Register({
                     el: '#container',
-                    template: template,
+//                    template: template,
                     data: {
                         prospect : {
                             firstName : '',
