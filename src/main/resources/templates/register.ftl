@@ -65,6 +65,7 @@
                                 <label class="mdl-textfield__label" for="title">Title</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <#--<i class="material-icons prefix">account_circle</i>-->
                                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="fullname" />
                                 <label class="mdl-textfield__label" for="fllname">Fullname</label>
                             </div>
@@ -72,10 +73,6 @@
                                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="lastname" />
                                 <label class="mdl-textfield__label" for="lastname">Lastname</label>
                             </div>
-                            <#--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
-                                <#--<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="gender" />-->
-                                <#--<label class="mdl-textfield__label" for="gender">Gender</label>-->
-                            <#--</div>-->
                             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
                                 <h6>Gender</h6>
                                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="male">
@@ -93,49 +90,63 @@
                                 <label class="mdl-textfield__label" for="email">E-Mail</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <#--<i class="material-icons prefix">phone</i>-->
                                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="mobile" />
                                 <label class="mdl-textfield__label" for="mobile">Mobile</label>
                             </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="university" />
-                                <label class="mdl-textfield__label" for="university">University</label>
-                            </div>
                             <#--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
-                                <#--<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="field" />-->
-                                <#--<label class="mdl-textfield__label" for="field">Interested Field</label>-->
+                                <#--<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="university" />-->
+                                <#--<label class="mdl-textfield__label" for="university">University</label>-->
                             <#--</div>-->
-                            <#--<div>-->
-                                <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
-                                    <h6>Interested fields</h6>
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="tester">
-                                        <input type="checkbox" id="tester" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Tester</span>
-                                    </label>
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backend">
-                                        <input type="checkbox" id="backend" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Backend Developer</span>
-                                    </label>
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="frontend">
-                                        <input type="checkbox" id="frontend" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Frontend Developer</span>
-                                    </label>
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="other">
-                                        <input type="checkbox" id="other" class="mdl-checkbox__input">
-                                    <span class="mdl-checkbox__label">
-                                        <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="othertxt" />
-                                        <label class="mdl-textfield__label" for="othertxt">Other</label>
-                                    </span>
-                                    </label>
-                                </div>
 
-                            <#--</div>-->
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="type" />
-                                <label class="mdl-textfield__label" for="type">Type</label>
+                            <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                                <select class="mdl-select__input" id="university" name="university">
+                                    <option value=""></option>
+                                    <option value="su">Silpakorn University</option>
+                                    <option value="mu">Mahidol University</option>
+                                    <option value="tu">Thammasart University</option>
+                                    <option value="kmutt">KMUTT</option>
+                                    <option value="cu">Chula</option>
+                                </select>
+                                <label class="mdl-select__label" for="university">University</label>
+                            </div>
+                            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
+                                <h6>Interested fields</h6>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="tester">
+                                    <input type="checkbox" id="tester" class="mdl-checkbox__input">
+                                    <span class="mdl-checkbox__label">Tester</span>
+                                </label>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backend">
+                                    <input type="checkbox" id="backend" class="mdl-checkbox__input">
+                                    <span class="mdl-checkbox__label">Backend Developer</span>
+                                </label>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="frontend">
+                                    <input type="checkbox" id="frontend" class="mdl-checkbox__input">
+                                    <span class="mdl-checkbox__label">Frontend Developer</span>
+                                </label>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="other">
+                                    <input type="checkbox" id="other" class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label"> Other
+                                    <input class="mdl-textfield__input_other" type="text" pattern="[A-Z,a-z]*" id="othertxt" />
+                                    <label class="mdl-textfield__label" for="othertxt">Other</label>
+                                </span>
+                                </label>
+                            </div>
+                            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
+                                <h6>Type</h6>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="intern">
+                                    <input class="mdl-radio__button" id="intern" name="type" type="radio" value="intern">
+                                    <span class="mdl-radio__label">Intern</span>
+                                </label>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="permanent">
+                                    <input class="mdl-radio__button" id="permanent" name="type" type="radio" value="permanent">
+                                    <span class="mdl-radio__label">Permanent</span>
+                                </label>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <footer class="demo-footer mdl-mini-footer">
                     <div class="mdl-mini-footer--left-section">
                         <ul class="mdl-mini-footer--link-list">

@@ -1,44 +1,77 @@
-<!doctype html>
-<html lang='en-GB'>
-<head>
-    <meta charset='utf-8'>
-    <title>Ractive test</title>
-</head>
+<!DOCTYPE html>
+<html lang="en" class="mdl-js" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="ABCTech's registration system">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Majoingun</title>
 
-<body>
-<h1>Ractive test</h1>
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <!--<link rel="icon" sizes="192x192" href="http://www.getmdl.io/templates/article/images/android-desktop.png">-->
 
-<div id='container'>
-</div>
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+        <link rel="apple-touch-icon-precomposed" href="http://www.getmdl.io/templates/article/images/ios-desktop.png">
 
-<script src='/majoingun/js/ractive.min.js'></script>
-<script src='/majoingun/js/ractive-events-tap.min.js'></script>
-<script src='/majoingun/js/reqwest.min.js'></script>
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
 
-<script>
-    var ractive;
+        <!--<link rel="shortcut icon" href="http://www.getmdl.io/templates/article/images/favicon.png">-->
+        <link rel="icon" type="image/png" href="http://new.abctech-thailand.com/wp-content/uploads/2015/12/favicon.png">
+        <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+        <!--
+        <link rel="canonical" href="http://www.example.com/">
+        -->
+    </head>
 
-    //use reqwest to make ajax request(template request for this case), more info : https://github.com/ded/reqwest/blob/master/README.md
-    reqwest('/majoingun/register.from.component.html').then(function (template) {
-        ractive = new Ractive({
-            el: '#container',
-            template: template,
-            data: {
-                registrar : {
-                    firstName : '',
-                    lastName : ''
-                }
-            }
-        });
+    <body>
+        <div id='container'/>
+        </div>
 
-        ractive.on('submit', function(event) {
-            var data = ractive.get('registrar');
-            alert(data.firstName + " is saved");
-            event.original.preventDefault();
-            ractive.reset();
-        });
-    });
+        <script src='/majoingun/js/ractive.min.js'></script>
+        <script src='/majoingun/js/ractive-events-tap.min.js'></script>
+        <!--<script src='/majoingun/js/reqwest.min.js'></script>-->
+        <script src='/majoingun/js/ractive-load.min.js'></script>
+        <script>
+            var ractive;
+            var universities = [ 'Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University' ];
+            //use reqwest to make ajax request(template request for this case), more info : https://github.com/ded/reqwest/blob/master/README.md
+            Ractive.load('register.from.component.html').then(function (Register) {
+                ractive = new Register({
+                    el: '#container',
+//                    template: template,
+                    data: {
+                        prospect : {
+                            firstName : '',
+                            lastName : '',
+                            gender: '',
+                            email: '',
+                            mobile: '',
+                            university: '',
+                            interestedFields: [],
+                            type: ''
+                        },
+                        universitiesList : universities
+                    }
+                });
 
-</script>
-</body>
+                ractive.on('submit', function(event) {
+                    var data = ractive.get('prospect');
+                    alert(data.firstName + " is saved");
+                    alert(data.gender + " is saved");
+                    alert(data.university + " is saved");
+                    alert(data.interestedFields + " is saved");
+                    event.original.preventDefault();
+                    ractive.reset();
+                });
+            });
+
+        </script>
+    </body>
 </html>
