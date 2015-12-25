@@ -24,11 +24,16 @@
             el: '#container',
             template: template,
             data: {
+                registrar : {
+                    firstName : '',
+                    lastName : ''
+                }
             }
         });
 
         ractive.on('submit', function(event) {
-            alert(this.get('name') + " is saved");
+            var data = ractive.get('registrar');
+            alert(data.firstName + " is saved");
             event.original.preventDefault();
             ractive.reset();
         });

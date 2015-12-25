@@ -1,7 +1,8 @@
 <div>
     <form on-submit="submit">
-        <input value="{{name}}">
+        <lable>First name :</lable><input value="{{registrar.firstName}}">
+        <lable>Last name :</lable><input value="{{registrar.lastName}}">
         <button type="submit">Save</button>
     </form>
-    <p>Your name is {{name}}</p>
+    <p>Your name is {{registrar.firstName}} {{registrar.lastName}}</p>
 </div>
