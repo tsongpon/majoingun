@@ -65,6 +65,7 @@
                                 <label class="mdl-textfield__label" for="title">Title</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <#--<i class="material-icons prefix">account_circle</i>-->
                                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="fullname" />
                                 <label class="mdl-textfield__label" for="fllname">Fullname</label>
                             </div>
@@ -89,12 +90,25 @@
                                 <label class="mdl-textfield__label" for="email">E-Mail</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <#--<i class="material-icons prefix">phone</i>-->
                                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="mobile" />
                                 <label class="mdl-textfield__label" for="mobile">Mobile</label>
                             </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="university" />
-                                <label class="mdl-textfield__label" for="university">University</label>
+                            <#--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-->
+                                <#--<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="university" />-->
+                                <#--<label class="mdl-textfield__label" for="university">University</label>-->
+                            <#--</div>-->
+
+                            <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                                <select class="mdl-select__input" id="university" name="university">
+                                    <option value=""></option>
+                                    <option value="su">Silpakorn University</option>
+                                    <option value="mu">Mahidol University</option>
+                                    <option value="tu">Thammasart University</option>
+                                    <option value="kmutt">KMUTT</option>
+                                    <option value="cu">Chula</option>
+                                </select>
+                                <label class="mdl-select__label" for="university">University</label>
                             </div>
                             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
                                 <h6>Interested fields</h6>
@@ -132,6 +146,7 @@
                         </div>
                     </div>
                 </div>
+
                 <footer class="demo-footer mdl-mini-footer">
                     <div class="mdl-mini-footer--left-section">
                         <ul class="mdl-mini-footer--link-list">
