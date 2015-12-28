@@ -48,7 +48,7 @@ public class ProspectTransportMapper {
         if(prospectTransport.getType().equalsIgnoreCase("intern")){
             transport.setProspectType(ProspectType.INTERN);
         }
-        if(prospectTransport.getGender().equalsIgnoreCase("permanent")){
+        if(prospectTransport.getType().equalsIgnoreCase("permanent")){
             transport.setProspectType(ProspectType.PERMANENT);
         }
         transport.setRegisterTime(LocalDateTime.now());
