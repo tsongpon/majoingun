@@ -14,27 +14,36 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "prospect")
+@Table(name = "prospect", indexes = {@Index(columnList = "emailaddress")})
 public class Prospect implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column(name = "firstname", nullable = false)
     private String firstName;
+
     @Column(name = "lastname", nullable = false)
     private String lastName;
+
     @Column(name = "gender", nullable = false)
     private Gender gender;
+
     @Column(name = "emailaddress", nullable = false, unique = true)
     private String emailAddress;
+
     @Column(name = "telephonenumber")
     private String telephoneNumber;
+
     @Column(name = "universityname")
     private String universityName;
+
     @Column(name = "registrartype")
     private ProspectType prospectType;
+
     @Column(name = "registertime", nullable = false)
     private LocalDateTime registerTime;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="prospect_jobfunction",
             joinColumns=

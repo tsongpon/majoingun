@@ -1,6 +1,8 @@
 package com.majoingun.service;
 
 import com.majoingun.domain.Prospect;
+import org.apache.log4j.spi.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -21,6 +23,8 @@ import java.util.Map;
  */
 @Service
 public class MailService {
+
+    private Logger log = org.slf4j.LoggerFactory.getLogger(MailService.class);
 
     private JavaMailSender mailSender;
     private FreeMarkerConfigurationFactory freeMarkerConfigurationFactory;
@@ -53,7 +57,7 @@ public class MailService {
             message.setContent(mailBody, "text/html; charset=utf-8");
             mailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            log.error("Cannot sent mail to {}", prospect.getEmailAddress(), e);
         }
 
     }

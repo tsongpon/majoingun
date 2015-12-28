@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface JobFunctionRepository extends CrudRepository<JobFunction, Long> {
+
+    JobFunction findByFunctionName( String functionName );
 }
