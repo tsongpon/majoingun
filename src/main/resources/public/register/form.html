@@ -71,9 +71,9 @@
     <script id='template' type='text/html'>
         <form on-submit="submit">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="fisrtname"
+                <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="firstname"
                        value="{{prospect.firstName}}" required/>
-                <label class="mdl-textfield__label" for="fisrtname">Firstname</label>
+                <label class="mdl-textfield__label" for="firstname">Firstname</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="lastname"
@@ -157,7 +157,7 @@
                     <span class="mdl-radio__label">Permanent</span>
                 </label>
             </div>
-            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
+            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-right">
                 <button type="submit"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Submit
