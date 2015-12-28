@@ -32,11 +32,12 @@
             dataType: "json",
             success: function(){
                 alert("Save successfully");
+                location.reload();
             }
         });
 
         event.original.preventDefault();
-        ractive.reset();
+        //ractive.reset();
         ractive.set('universitiesList', universities);
     });
 }());
