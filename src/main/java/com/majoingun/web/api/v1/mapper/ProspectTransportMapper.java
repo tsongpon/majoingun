@@ -38,8 +38,7 @@ public class ProspectTransportMapper {
         }
         List<JobFunction> jobFunctionList = new ArrayList<>();
         if(!StringUtils.isEmpty(prospectTransport.getInterestedFields())){
-            String interestFields[] = prospectTransport.getInterestedFields().split(",");
-            for(String str: interestFields){
+            for(String str: prospectTransport.getInterestedFields()){
                 JobFunction jobFunction = jobFunctionRepository.findByFunctionName(str);
                 jobFunctionList.add(jobFunction);
             }

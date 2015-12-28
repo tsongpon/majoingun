@@ -12,7 +12,7 @@
                 email: '',
                 mobile: '',
                 university: '',
-                interestedFields: [],
+                interestedFields: '',
                 type: ''
             }
             //universitiesList: universities
@@ -23,10 +23,18 @@
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');
-        alert(data.firstName + " is saved");
-        alert(data.gender + " is saved");
-        alert(data.university + " is saved");
-        alert(data.interestedFields + " is saved");
+
+        $.ajax({
+            type: "POST",
+            url: "/api/majoingun/v1/prospects",
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){
+                alert(data);
+            }
+        });
+
         event.original.preventDefault();
         ractive.reset();
         ractive.set('universitiesList', universities);

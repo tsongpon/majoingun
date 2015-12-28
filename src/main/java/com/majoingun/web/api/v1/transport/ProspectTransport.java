@@ -15,6 +15,6 @@ public class ProspectTransport {
     private String email;
     private String mobile;
     private String university;
-    private String interestedFields;
+    private String interestedFields[];
     private String type;
 }
