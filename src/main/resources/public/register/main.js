@@ -33,11 +33,18 @@
             success: function(){
                 swal({
                     title: "Saved!",
-                    text: "Your information was saved successfully!",
+                    text: "Your information is saved successfully.",
                     type: "success"
                     },
                 function(){
                     location.reload(true);
+                });
+            },
+            error: function(){
+                swal({
+                    title: "Error!",
+                    text: "All fields is required.",
+                    type: "error"
                 });
             }
         });

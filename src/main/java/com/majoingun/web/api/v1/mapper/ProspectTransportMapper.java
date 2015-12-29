@@ -1,12 +1,16 @@
 package com.majoingun.web.api.v1.mapper;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.majoingun.domain.JobFunction;
 import com.majoingun.domain.Prospect;
 import com.majoingun.enumuration.Gender;
 import com.majoingun.enumuration.ProspectType;
 import com.majoingun.repository.JobFunctionRepository;
 import com.majoingun.web.api.v1.transport.ProspectTransport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -17,6 +21,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class ProspectTransportMapper {
+    private Logger log = LoggerFactory.getLogger(ProspectTransportMapper.class);
     private JobFunctionRepository jobFunctionRepository;
 
     @Autowired
@@ -26,32 +31,37 @@ public class ProspectTransportMapper {
 
     public Prospect map(ProspectTransport prospectTransport){
         Prospect transport = new Prospect();
-        transport.setFirstName(prospectTransport.getFirstName());
-        transport.setLastName(prospectTransport.getLastName());
-        transport.setEmailAddress(prospectTransport.getEmail());
-        transport.setTelephoneNumber(prospectTransport.getMobile());
-        if(prospectTransport.getGender().equalsIgnoreCase("male")){
-            transport.setGender(Gender.MALE);
-        }
-        if(prospectTransport.getGender().equalsIgnoreCase("female")){
-            transport.setGender(Gender.FEMALE);
-        }
-        List<JobFunction> jobFunctionList = new ArrayList<>();
-        if(!StringUtils.isEmpty(prospectTransport.getInterestedFields())){
-            for(String str: prospectTransport.getInterestedFields()){
-                JobFunction jobFunction = jobFunctionRepository.findByFunctionName(str);
-                jobFunctionList.add(jobFunction);
+        try {
+            transport.setFirstName(prospectTransport.getFirstName());
+            transport.setLastName(prospectTransport.getLastName());
+            transport.setEmailAddress(prospectTransport.getEmail());
+            transport.setTelephoneNumber(prospectTransport.getMobile());
+            if(prospectTransport.getGender().equalsIgnoreCase("male")){
+                transport.setGender(Gender.MALE);
             }
+            if(prospectTransport.getGender().equalsIgnoreCase("female")){
+                transport.setGender(Gender.FEMALE);
+            }
+            List<JobFunction> jobFunctionList = new ArrayList<>();
+            if(!StringUtils.isEmpty(prospectTransport.getInterestedFields())){
+                for(String str: prospectTransport.getInterestedFields()){
+                    JobFunction jobFunction = jobFunctionRepository.findByFunctionName(str);
+                    jobFunctionList.add(jobFunction);
+                }
+            }
+            transport.setInterestedJobFunction(jobFunctionList);
+            transport.setUniversityName(prospectTransport.getUniversity());
+            if(prospectTransport.getType().equalsIgnoreCase("intern")){
+                transport.setProspectType(ProspectType.INTERN);
+            }
+            if(prospectTransport.getType().equalsIgnoreCase("permanent")){
+                transport.setProspectType(ProspectType.PERMANENT);
+            }
+            transport.setRegisterTime(LocalDateTime.now());
+        }catch (Exception e){
+            log.info("Could not read document", e);
+            throw new HttpMessageNotReadableException(e.getMessage());
         }
-        transport.setInterestedJobFunction(jobFunctionList);
-        transport.setUniversityName(prospectTransport.getUniversity());
-        if(prospectTransport.getType().equalsIgnoreCase("intern")){
-            transport.setProspectType(ProspectType.INTERN);
-        }
-        if(prospectTransport.getType().equalsIgnoreCase("permanent")){
-            transport.setProspectType(ProspectType.PERMANENT);
-        }
-        transport.setRegisterTime(LocalDateTime.now());
 
         return transport;
     }

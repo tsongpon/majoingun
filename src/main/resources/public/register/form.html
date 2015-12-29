@@ -56,14 +56,38 @@
                         </div>
                     </div>
                 </div>
-                <footer class="demo-footer mdl-mini-footer">
-                    <div class="mdl-mini-footer--left-section">
-                        <ul class="mdl-mini-footer--link-list">
-                            <li><a href="http://www.getmdl.io/templates/article/index.html#">Help</a></li>
-                            <li><a href="http://www.getmdl.io/templates/article/index.html#">Privacy and Terms</a></li>
-                            <li><a href="http://www.getmdl.io/templates/article/index.html#">User Agreement</a></li>
-                        </ul>
+                <!--<footer class="demo-footer mdl-mini-footer">-->
+                    <!--<div class="mdl-mini-footer&#45;&#45;left-section">-->
+                        <!--<ul class="mdl-mini-footer&#45;&#45;link-list">-->
+                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">Help</a></li>-->
+                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">Privacy and Terms</a></li>-->
+                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">User Agreement</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</footer>-->
+                <footer class="mdl-mega-footer">
+                    <div class="mdl-mega-footer__middle-section">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--6-col">
+                                <h1 class="mdl-mega-footer__heading">Find us at</h1>
+                                Unit 1101, 1104, 11th Floor
+                                Exchange Tower
+                                388 Sukhumvit Road, Klongtoey,
+                                Bangkok 10110, Thailand.
+                            </div>
+                            <div class="mdl-cell mdl-cell--6-col">
+                                <h1 class="mdl-mega-footer__heading">Contact</h1>
+                                Phone : +66 (0) 2663 4340
+                                Fax : +66 (0) 2663 4339
+                                E-mail : contact@abctech-thailand.com
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="mdl-mega-footer__bottom-section" style="text-align: center">
+                        Copyright ABCTECH 2015. All Rights Reserve
+                    </div>
+
                 </footer>
             </main>
         </div>
@@ -73,12 +97,12 @@
         <form on-submit="submit">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="firstname"
-                       value="{{prospect.firstName}}" required/>
+                       value="{{prospect.firstName}}"/>
                 <label class="mdl-textfield__label" for="firstname">Firstname</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="lastname"
-                       value="{{prospect.lastName}}" required/>
+                       value="{{prospect.lastName}}"/>
                 <label class="mdl-textfield__label" for="lastname">Lastname</label>
             </div>
             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
@@ -95,7 +119,7 @@
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email"
-                       value="{{prospect.email}}" title="please input valid e-mail address" required/>
+                       value="{{prospect.email}}" title="please input valid e-mail address"/>
                 <label class="mdl-textfield__label" for="email">E-mail</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -140,11 +164,11 @@
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="other">
                     <input type="checkbox" id="other" class="mdl-checkbox__input"
                            name="{{prospect.interestedFields}}" value="other">
-                                        <span class="mdl-checkbox__label"> Other
-                                            <input class="mdl-textfield__input_other" type="text" pattern="[A-Z,a-z]*"
-                                                   id="othertxt"/>
-                                            <label class="mdl-textfield__label" for="othertxt">Other</label>
-                                        </span>
+                    <span class="mdl-checkbox__label"> Other
+                        <input class="mdl-textfield__input_other" type="text" pattern="[A-Z,a-z]*"
+                               id="othertxt"/>
+                        <label class="mdl-textfield__label" for="othertxt">Other</label>
+                    </span>
                 </label>
             </div>
             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
