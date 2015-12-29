@@ -29,7 +29,7 @@ public class Prospect implements Serializable {
     @Column(name = "gender", nullable = false)
     private Gender gender;
 
-    @Column(name = "emailaddress", nullable = false, unique = true)
+    @Column(name = "emailaddress", nullable = false)
     private String emailAddress;
 
     @Column(name = "telephonenumber")
