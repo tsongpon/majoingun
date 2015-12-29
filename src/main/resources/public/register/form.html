@@ -96,12 +96,15 @@
                        value="{{prospect.lastName}}"/>
                 <label class="mdl-textfield__label" for="lastname">Lastname</label>
             </div>
-            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
-                <h6>Gender</h6>
+
+            <h6>Gender</h6>
+            <div class="snippet-demo">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="male">
                     <input class="mdl-radio__button" id="male" name="{{prospect.gender}}" type="radio" value="male">
                     <span class="mdl-radio__label">Male</span>
                 </label>
+            </div>
+            <div class="snippet-demo">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="female">
                     <input class="mdl-radio__button" id="female" name="{{prospect.gender}}" type="radio" value="female">
                     <span class="mdl-radio__label">Female</span>
@@ -118,12 +121,6 @@
                        value="{{prospect.mobile}}"/>
                 <label class="mdl-textfield__label" for="mobile">Mobile</label>
             </div>
-            <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield&#45;&#45;floating-label">-->
-            <!--<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="university" />-->
-            <!--<label class="mdl-textfield__label" for="university">University</label>-->
-            <!--</div>-->
-            <!--<div class="mdl-cell mdl-cell&#45;&#45;12-col mdl-typography&#45;&#45;text-left">-->
-            <!--<h6>University</h6>-->
 
             <div class="mdl-select mdl-js-select mdl-select--floating-label">
                 <select class="mdl-select__input" id="university" value="{{prospect.university}}">
@@ -132,11 +129,10 @@
                     <option value="{{this}}">{{this}}</option>
                     {{/each}}
                 </select>
-                <!--<label class="mdl-select__label" for="university">University</label>-->
             </div>
-            <!--</div>-->
+
+            <h6>Interested fields</h6>
             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
-                <h6>Interested fields</h6>
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backend">
                     <input type="checkbox" id="backend" class="mdl-checkbox__input"
                            name="{{prospect.interestedFields}}" value="Backend Developer">
@@ -152,31 +148,25 @@
                            name="{{prospect.interestedFields}}" value="Software Tester">
                     <span class="mdl-checkbox__label">Software Tester</span>
                 </label>
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="other">
-                    <input type="checkbox" id="other" class="mdl-checkbox__input"
-                           name="{{prospect.interestedFields}}" value="other">
-                    <span class="mdl-checkbox__label"> Other
-                        <input class="mdl-textfield__input_other" type="text" pattern="[A-Z,a-z]*"
-                               id="othertxt"/>
-                        <label class="mdl-textfield__label" for="othertxt">Other</label>
-                    </span>
-                </label>
             </div>
-            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
-                <h6>Type</h6>
+            <h6>Type</h6>
+            <div class="snippet-demo">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="intern">
                     <input class="mdl-radio__button" id="intern" name="{{prospect.type}}" type="radio" value="intern">
                     <span class="mdl-radio__label">Intern</span>
                 </label>
+            </div>
+            <div class="snippet-demo">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="permanent">
                     <input class="mdl-radio__button" id="permanent" name="{{prospect.type}}" type="radio" value="permanent">
                     <span class="mdl-radio__label">Permanent</span>
                 </label>
             </div>
+
             <div class="mdl-cell mdl-cell--12-col mdl-typography--text-right">
                 <button type="submit"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    Submit
+                    Save
                 </button>
             </div>
         </form>

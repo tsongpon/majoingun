@@ -32,13 +32,13 @@ public class Prospect implements Serializable {
     @Column(name = "emailaddress", nullable = false)
     private String emailAddress;
 
-    @Column(name = "telephonenumber")
+    @Column(name = "telephonenumber", nullable = false)
     private String telephoneNumber;
 
-    @Column(name = "universityname")
+    @Column(name = "universityname", nullable = false)
     private String universityName;
 
-    @Column(name = "registrartype")
+    @Column(name = "registrartype", nullable = false)
     private ProspectType prospectType;
 
     @Column(name = "registertime", nullable = false)

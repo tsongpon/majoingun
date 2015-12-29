@@ -33,7 +33,7 @@
             success: function(){
                 swal({
                     title: "Saved!",
-                    text: "Your information is saved successfully.",
+                    text: "Your information has been saved successfully.",
                     type: "success"
                     },
                 function(){
@@ -43,7 +43,7 @@
             error: function(){
                 swal({
                     title: "Error!",
-                    text: "All fields is required.",
+                    text: "All fields are required.",
                     type: "error"
                 });
             }
