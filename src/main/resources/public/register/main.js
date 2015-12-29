@@ -31,13 +31,17 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(){
-                swal("Saved!", "Your information was saved successfully!", "success");
-                location.reload();
+                swal({
+                    title: "Saved!",
+                    text: "Your information was saved successfully!",
+                    type: "success"
+                    },
+                function(){
+                    location.reload(true);
+                });
             }
         });
-
         event.original.preventDefault();
-        //ractive.reset();
         ractive.set('universitiesList', universities);
     });
 }());
