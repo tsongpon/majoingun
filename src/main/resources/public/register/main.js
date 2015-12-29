@@ -31,7 +31,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(){
-                alert("Save successfully");
+                swal("Saved!", "Your information was saved successfully!", "success");
                 location.reload();
             }
         });
