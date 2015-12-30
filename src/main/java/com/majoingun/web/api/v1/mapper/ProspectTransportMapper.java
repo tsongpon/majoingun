@@ -59,7 +59,7 @@ public class ProspectTransportMapper {
             }
             transport.setRegisterTime(LocalDateTime.now());
         }catch (Exception e){
-            log.info("Could not read document", e);
+            log.error("Could not read document", e);
             throw new HttpMessageNotReadableException(e.getMessage());
         }
 

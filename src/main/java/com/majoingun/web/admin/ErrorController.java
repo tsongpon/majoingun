@@ -1,11 +1,14 @@
 package com.majoingun.web.admin;
 
+import com.majoingun.MajoingunException;
 import com.majoingun.web.transport.ErrorResponseTransport;
+import com.sun.mail.smtp.SMTPAddressFailedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.mapping.model.MappingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.mail.MailSendException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,9 +36,10 @@ public class ErrorController {
         return errorResponseTransport;
     }
 
-    @ExceptionHandler(MappingException.class)
+    @ExceptionHandler(MailSendException.class)
     @ResponseBody
-    public ErrorResponseTransport handleInternalServerError(HttpServletResponse response,MappingException ex) throws IOException {
+    public ErrorResponseTransport handleSMTPAddressException(HttpServletResponse response,
+                                                            MailSendException ex) throws IOException {
         log.error("Got exception internal server error", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
         errorResponseTransport.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());

@@ -43,9 +43,20 @@
             error: function(){
                 swal({
                     title: "Error!",
-                    text: "All fields are required.",
+                    text: "All fields are required",
                     type: "error"
                 });
+            },
+            statusCode: {
+                500: function(){
+                    swal({
+                        title: "Error!",
+                        text: "<p>Cannot sent mail to prospect</p> " +
+                        "<p>Please check receipt address</p>",
+                        html: true,
+                        type: "error"
+                    });
+                }
             }
         });
         event.original.preventDefault();

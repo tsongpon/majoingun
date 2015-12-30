@@ -6,6 +6,8 @@ import com.majoingun.domain.Prospect;
 import org.apache.log4j.spi.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMailMessage;
@@ -16,6 +18,7 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 import javax.mail.internet.MimeMessage;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +67,7 @@ public class MailService {
         }
     }
 
-    @Async
+    //@Async
     public void sendMailTo(Prospect prospect) {
         Map<String, Object> map = new HashMap<>();
         map.put("name", prospect.getFirstName());
@@ -88,6 +91,9 @@ public class MailService {
         } catch (MessagingException e) {
             log.error("Cannot sent mail to prospect {}", prospect.getEmailAddress(), e);
             throw new MajoingunException(e);
+        } catch (MailException ex){
+            log.error("Invalid recipient address");
+            throw new MailSendException(ex.getMessage());
         }
 
     }

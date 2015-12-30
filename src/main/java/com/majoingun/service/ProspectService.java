@@ -37,7 +37,7 @@ public class ProspectService {
             savedProspect =  prospectRepository.save(prospect);
             mailService.sendMailTo(savedProspect);
         }catch (Exception e){
-            log.info("Something went wrong, could not save data into database");
+            log.error("Could not save data into database");
             throw new MappingException(e.getMessage());
         }
         return savedProspect;
