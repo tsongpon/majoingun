@@ -17,4 +17,7 @@ public class Certificate {
 
     @Column(name = "certificatename")
     private String CertificateName;
+
+    @ManyToOne(targetEntity = Applicant.class)
+    private Applicant applicant;
 }

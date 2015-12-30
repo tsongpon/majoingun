@@ -29,6 +29,21 @@ public class ProspectTransportMapper {
         this.jobFunctionRepository = jobFunctionRepository;
     }
 
+    public ProspectTransport map(Prospect prospect) {
+        ProspectTransport transport = new ProspectTransport();
+        transport.setFirstName(prospect.getFirstName());
+        transport.setLastName(prospect.getLastName());
+        transport.setEmail(prospect.getEmailAddress());
+        transport.setUniversity(prospect.getUniversityName());
+        transport.setMobile(prospect.getTelephoneNumber());
+
+        return transport;
+    }
+
+    public List<ProspectTransport> map(List<Prospect> prospects) {
+        return prospects.stream().map(this::map).collect(Collectors.toList());
+    }
+
     public Prospect map(ProspectTransport prospectTransport){
         Prospect transport = new Prospect();
         try {

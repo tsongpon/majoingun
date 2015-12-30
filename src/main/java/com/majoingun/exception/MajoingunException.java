@@ -1,4 +1,4 @@
-package com.majoingun;
+package com.majoingun.exception;
 
 /**
  *
