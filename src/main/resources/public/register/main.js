@@ -29,7 +29,7 @@
             url: "/api/majoingun/v1/prospects",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            dataType: "text",
+            dataType: "json",
             success: function(){
                 swal({
                     title: "Saved!",
@@ -48,6 +48,15 @@
                 });
             },
             statusCode: {
+                400: function(data){
+                    var errMsg = data.responseText;
+                    swal({
+                        title: "Error!",
+                        text: "<p>Your information was not complete: </p> " + errMsg,
+                        html: true,
+                        type: "error"
+                    });
+                },
                 500: function(){
                     swal({
                         title: "Error!",

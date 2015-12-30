@@ -63,7 +63,7 @@ public class MailService {
         }
     }
 
-    //@Async
+    @Async
     public void sendMailTo(Prospect prospect) {
         Map<String, Object> map = new HashMap<>();
         map.put("name", prospect.getFirstName());
@@ -86,11 +86,12 @@ public class MailService {
             mailSender.send(message);
         } catch (MessagingException e) {
             log.error("Cannot sent mail to prospect {}", prospect.getEmailAddress(), e);
-            throw new MajoingunException(e);
-        } catch (MailException ex){
-            log.error("Invalid recipient address");
-            throw new MailSendException(ex.getMessage());
+            throw new MailSendException(e.getMessage());
         }
+//        catch (MailException ex){
+//            log.error("Invalid recipient address");
+//            throw new MailSendException(ex.getMessage());
+//        }
 
     }
 }
