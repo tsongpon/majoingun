@@ -14,3 +14,14 @@ INSERT INTO jobposition VALUES (8, "Development Team Lead");
 INSERT INTO jobposition VALUES (9, "Juinor Frontend Developer");
 INSERT INTO jobposition VALUES (10, "Frontend Developer");
 INSERT INTO jobposition VALUES (11, "Senior Frontend Developer");
+
+-- Education level
+INSERT INTO educationlevel VALUES (1,"Primary");
+INSERT INTO educationlevel VALUES (2,"Secondary");
+INSERT INTO educationlevel VALUES (3,"High School");
+INSERT INTO educationlevel VALUES (4,"Dilpoma");
+INSERT INTO educationlevel VALUES (5,"Vocational Certificate");
+INSERT INTO educationlevel VALUES (6,"High Vocational Certificate");
+INSERT INTO educationlevel VALUES (7,"Bachelor's Degree");
+INSERT INTO educationlevel VALUES (8,"Master's Degree");
+INSERT INTO educationlevel VALUES (9,"Dectorate Degree");

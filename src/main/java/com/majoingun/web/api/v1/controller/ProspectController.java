@@ -5,10 +5,14 @@ import com.majoingun.service.ProspectService;
 import com.majoingun.web.api.v1.mapper.ProspectTransportMapper;
 import com.majoingun.web.api.v1.transport.ProspectTransport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.List;
 
 @RestController
 public class ProspectController {
@@ -21,13 +25,23 @@ public class ProspectController {
 
     @RequestMapping(value = "/api/majoingun/v1/prospects", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public @ResponseBody Response saveNewProspect(@RequestBody ProspectTransport prospectTransport){
+    public ResponseEntity<?> saveNewProspect(@RequestBody ProspectTransport prospectTransport){
         Prospect prospect = mapper.map(prospectTransport);
-        prospectService.saveNewProspect(prospect);
+        Prospect savedProspect = prospectService.saveNewProspect(prospect);
 
-        return Response.status(Response.Status.CREATED)
-                .entity("Save new prospect successfully")
-                .build();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setLocation(ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(savedProspect.getId()).toUri());
+        return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "api/majoingun/v1/prospects", method = RequestMethod.GET)
+    public ResponseEntity<?> listAllProspect() {
+        List<Prospect> prospects = prospectService.listProspect();
+
+        return new ResponseEntity<>(mapper.map(prospects), HttpStatus.OK);
     }
 }
 
