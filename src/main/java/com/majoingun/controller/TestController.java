@@ -75,28 +75,4 @@ public class TestController {
         return prospect;
     }
 
-    @RequestMapping("/saveapplication")
-    public String saveApplication() {
-        Applicant app = new Applicant();
-        app.setTitle("Mr.");
-        app.setFirstName("Songpon");
-        app.setLastName("Imyen");
-        app.setEmailAddress("t.songpon@gmail.com");
-        app.setContactNumber("0809710099");
-        app.setEducationLevel("Master of science");
-        app.setDateOfBirth(LocalDateTime.now());
-        app.setMajor("Computer science");
-        app.setYearOfExperience(9);
-        app.setIntroduceMessage("Coder");
-
-        JobPosition position = jobPositionRepository.findByPositionName("Java Developer");
-        List<JobPosition> positions = new ArrayList<>();
-        positions.add(position);
-        app.setInterestedJobPosition(positions);
-
-        applicantRepository.save(app);
-
-        return "done";
-    }
-
 }

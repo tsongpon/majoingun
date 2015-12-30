@@ -21,9 +21,6 @@ public class Applicant implements Serializable {
     @Column(name = "emailaddress", nullable = false, unique = true)
     private String emailAddress;
 
-    @Column(name = "title")
-    private String title;
-
     @Column(name = "firstname", nullable = false)
     private String firstName;
 
@@ -36,25 +33,23 @@ public class Applicant implements Serializable {
     @Column(name = "dateofbirth", nullable = false)
     private LocalDateTime dateOfBirth;
 
-    @Column(name = "educationlevel")
-    private String educationLevel;
-
     @Column(name = "major")
     private String major;
 
     @Column(name = "yearofexperience")
     private Integer yearOfExperience;
 
-    //    private List<Certificate> certificates;
+    @ManyToOne(targetEntity = EducationLevel.class)
+    @JoinColumn(name = "educationlevel_id")
+    private EducationLevel highestEducationLevel;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "applicant_jobposition",
-            joinColumns =
-            @JoinColumn(name = "applicant_id", referencedColumnName = "id"),
-            inverseJoinColumns =
-            @JoinColumn(name = "jobposition_id", referencedColumnName = "id")
-    )
-    private List<JobPosition> interestedJobPosition;
+    @OneToMany(targetEntity = Certificate.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private List<Certificate> certificates;
+
+    @ManyToOne(targetEntity = JobPosition.class)
+    @JoinColumn(name = "jobposition_id")
+    private JobPosition interestedJobPosition;
 
     @Column(name = "introducemessage", length = 1000)
     private String introduceMessage;

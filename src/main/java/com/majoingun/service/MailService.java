@@ -1,14 +1,11 @@
 package com.majoingun.service;
 
-import com.majoingun.MajoingunException;
+import com.majoingun.exception.MajoingunException;
 import com.majoingun.domain.Applicant;
 import com.majoingun.domain.Prospect;
-import org.apache.log4j.spi.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
