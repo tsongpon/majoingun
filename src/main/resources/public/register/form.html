@@ -85,11 +85,12 @@
     </div>
 
     <script id='template' type='text/html'>
-        <form on-submit="submit">
+        <form on-submit="submit" name="registerFrm" id="registerFrm">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="firstname"
-                       value="{{prospect.firstName}}"/>
+                       value="{{prospect.firstName}}" />
                 <label class="mdl-textfield__label" for="firstname">Firstname</label>
+                <span class="validation-message">{{prospect.firstNameMsg}}</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="lastname"
@@ -177,7 +178,6 @@
     <script src='/majoingun/js/material.min.js'></script>
     <script src='/majoingun/js/sweetalert.min.js'></script>
     <script src='/majoingun/js/moment.min.js'></script>
-    <!--<script src='/majoingun/js/ractive-validator.min.js'></script>-->
     <script src="/majoingun/register/main.js"></script>
 
 </body>

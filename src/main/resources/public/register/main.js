@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var universities = ['Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University'];
 
     var ractive = new Ractive({
@@ -19,40 +19,28 @@
         }
     });
 
-    //var validator = new RactiveValidator(ractive,{
-    //    'data.prospect.firstName': {required: true}
-    //});
-
     ractive.set('universitiesList', universities);
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');
 
-        //if (validator.valid) {
-        //    // yay!!
-        //}
-        //else {
-        //    //alert("has error!!");
-        //}
-
-        //validator.validate();
         $.ajax({
             type: "POST",
             url: "/api/majoingun/v1/prospects",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "text",
-            success: function(){
+            success: function () {
                 swal({
-                    title: "Saved!",
-                    text: "Your information has been saved successfully.",
-                    type: "success"
+                        title: "Saved!",
+                        text: "Your information has been saved successfully.",
+                        type: "success"
                     },
-                function(){
-                    location.reload(true);
-                });
+                    function () {
+                        location.reload(true);
+                    });
             },
-            error: function(){
+            error: function () {
                 swal({
                     title: "Error!",
                     text: "All fields are required",
@@ -60,7 +48,7 @@
                 });
             },
             statusCode: {
-                400: function(data){
+                400: function (data) {
                     var errMsg = data.responseText;
                     swal({
                         title: "Error!",
@@ -69,7 +57,7 @@
                         type: "error"
                     });
                 },
-                500: function(){
+                500: function () {
                     var errMsg = data.responseText;
                     swal({
                         title: "Error!",
