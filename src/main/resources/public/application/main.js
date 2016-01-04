@@ -37,6 +37,7 @@
     });
     
     ractive.on('submit', function (event) {
+        event.original.preventDefault();
         var applicant = ractive.get('applicant');
 
         alert(applicant.dateOfBirth);
@@ -45,19 +46,21 @@
             url: "/api/majoingun/v1/applicants",
             data: JSON.stringify(applicant),
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            dataType: "text",
             success: function(){
                 swal("Saved!", "Your information was saved successfully!", "success");
                 //location.reload();
+                ractive.reset();
             },
-            complete: function() {
-                swal("Saved!", "Your information was saved successfully!", "success");
-                //location.reload();
+            error: function(){
+                swal({
+                    title: "Error!",
+                    text: "All fields are required.",
+                    type: "error"
+                });
             }
         });
 
-        event.original.preventDefault();
-        ractive.reset();
         $.getJSON( "/api/majoingun/v1/educationlevels", function( data ) {
             ractive.set('educationLevelList', data);
         });

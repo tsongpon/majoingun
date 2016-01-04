@@ -13,6 +13,7 @@ import com.majoingun.repository.ProspectRepository;
 import com.majoingun.service.MailService;
 import com.majoingun.service.ProspectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -68,11 +69,11 @@ public class TestController {
         return "saved";
     }
 
-    @RequestMapping("/find")
-    public Prospect find() {
-        Prospect prospect = prospectRepository.findByEmailAddress("tum@abc.io");
+    @RequestMapping("/find/{id}")
+    public String find(@PathVariable Long id) {
 
-        return prospect;
+        Applicant applicant = applicantRepository.findOne(id);
+        return Integer.toString(applicant.getCertificates().size());
     }
 
 }

@@ -11,8 +11,6 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -43,43 +41,37 @@ public class ApplicantMapper {
         LocalDate dateTime = LocalDate.parse(transport.getDateOfBirth(), formatter);
         applicant.setDateOfBirth(dateTime.atStartOfDay());
 
-        List<Certificate> certificates = new ArrayList<>();
         if(!StringUtils.isEmpty(transport.getCertificatesOne())) {
             Certificate certificate = new Certificate();
             certificate.setCertificateName(transport.getCertificatesOne());
             certificate.setApplicant(applicant);
-            certificates.add(certificate);
+            applicant.addCertificate(certificate);
         }
 
         if(!StringUtils.isEmpty(transport.getCertificatesTwo())) {
             Certificate certificate = new Certificate();
             certificate.setCertificateName(transport.getCertificatesTwo());
             certificate.setApplicant(applicant);
-            certificates.add(certificate);
+            applicant.addCertificate(certificate);
         }
-
 
         if(!StringUtils.isEmpty(transport.getCertificatesThree())) {
             Certificate certificate = new Certificate();
             certificate.setCertificateName(transport.getCertificatesThree());
             certificate.setApplicant(applicant);
-            certificates.add(certificate);
+            applicant.addCertificate(certificate);
         }
 
         if(!StringUtils.isEmpty(transport.getCertificatesFour())) {
             Certificate certificate = new Certificate();
             certificate.setCertificateName(transport.getCertificatesFour());
             certificate.setApplicant(applicant);
-            certificates.add(certificate);
-        }
-
-        if(certificates.size() > 0) {
-            applicant.setCertificates(certificates);
+            applicant.addCertificate(certificate);
         }
 
         applicant.setInterestedJobPosition(jobPositionService.findById(transport.getInterestedJobPosition()));
-
         applicant.setHighestEducationLevel(educationLevelService.findById(transport.getEducationLevel()));
+        applicant.setIntroduceMessage(transport.getIntroduceMessage());
 
         return applicant;
     }

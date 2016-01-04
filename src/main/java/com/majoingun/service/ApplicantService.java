@@ -24,9 +24,14 @@ public class ApplicantService {
         this.mailService = mailService;
     }
 
+    public Applicant findById(Long id) {
+        return applicantRepository.findOne(id);
+    }
+
     public Applicant saveApplicant(Applicant applicant) {
         log.info("saving applicant, applicant email address {}", applicant.getEmailAddress());
         Applicant savedApplicant = applicantRepository.save(applicant);
+
         mailService.sendMailTo(applicant);
 
         return savedApplicant;

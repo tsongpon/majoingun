@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,8 +44,7 @@ public class Applicant implements Serializable {
     @JoinColumn(name = "educationlevel_id")
     private EducationLevel highestEducationLevel;
 
-    @OneToMany(targetEntity = Certificate.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "applicant", cascade = CascadeType.ALL)
     private List<Certificate> certificates;
 
     @ManyToOne(targetEntity = JobPosition.class)
@@ -53,4 +53,12 @@ public class Applicant implements Serializable {
 
     @Column(name = "introducemessage", length = 1000)
     private String introduceMessage;
+
+    public void addCertificate(Certificate certificate) {
+        if (certificates == null) {
+            certificates = new ArrayList<>();
+        }
+        certificate.setApplicant(this);
+        certificates.add(certificate);
+    }
 }

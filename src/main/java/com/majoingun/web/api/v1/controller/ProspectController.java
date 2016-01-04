@@ -47,8 +47,7 @@ public class ProspectController {
         httpHeaders.setLocation(ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(savedProspect.getId()).toUri());
-        return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
-
+        return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "api/majoingun/v1/prospects", method = RequestMethod.GET)

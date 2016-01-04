@@ -28,8 +28,8 @@ public class ErrorController {
                                                              HttpMessageNotReadableException ex) throws IOException {
         log.error("Got exception bad request", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
-        errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponseTransport.setError(ex.getMessage());
+        //errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponseTransport.setError("All fields are required");
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         return errorResponseTransport;
     }
@@ -40,8 +40,8 @@ public class ErrorController {
                                                              MappingException ex) throws IOException {
         log.error("Got exception bad request", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
-        errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponseTransport.setError(ex.getMessage());
+        //errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponseTransport.setError("error");
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         return errorResponseTransport;
     }
@@ -52,8 +52,8 @@ public class ErrorController {
                                                             MailSendException ex) throws IOException {
         log.error("Got exception internal server error", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
-        errorResponseTransport.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        errorResponseTransport.setError(ex.getMessage());
+        //errorResponseTransport.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        errorResponseTransport.setError("error");
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
         return errorResponseTransport;

@@ -19,11 +19,23 @@
         }
     });
 
+    //var validator = new RactiveValidator(ractive,{
+    //    'data.prospect.firstName': {required: true}
+    //});
+
     ractive.set('universitiesList', universities);
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');
 
+        //if (validator.valid) {
+        //    // yay!!
+        //}
+        //else {
+        //    //alert("has error!!");
+        //}
+
+        //validator.validate();
         $.ajax({
             type: "POST",
             url: "/api/majoingun/v1/prospects",
@@ -58,10 +70,10 @@
                     });
                 },
                 500: function(){
+                    var errMsg = data.responseText;
                     swal({
                         title: "Error!",
-                        text: "<p>Cannot sent mail to prospect</p> " +
-                        "<p>Please check receipt address</p>",
+                        text: "<p>Your information was not complete: </p> " + errMsg,
                         html: true,
                         type: "error"
                     });

@@ -5,5 +5,4 @@ import lombok.Data;
 @Data
 public class ErrorResponseTransport {
     private String error;
-    private int status;
 }

@@ -15,17 +15,11 @@
     <!-- cdn for modernizr, if you haven't included it already -->
     <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
     <!-- polyfiller file to detect and load polyfills -->
-    <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script>
-        webshims.setOptions('waitReady', false);
-        webshims.setOptions('forms-ext', {types: 'date'});
-        webshims.polyfill('forms forms-ext');
-    </script>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/majoingun/css/sweetalert.css">
+    <link rel="stylesheet" href="/majoingun/css/datepicker.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -68,13 +62,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group form-group-lg col-xs-6">
+            <div class="form-group form-group-lg col-xs-6 date" id="datepicker" data-date-format="dd-mm-yyyy">
                 <label for="dateOfBirth">Date of Birth</label>
-                <input type="date" value="{{applicant.dateOfBirth}}" required class="form-control" id="dateOfBirth">
+                <input type="text" value="{{applicant.dateOfBirth}}" required class="form-control" id="dateOfBirth">
+                <span class="add-on"><i class="icon-calendar"></i></span>
             </div>
             <div class="form-group form-group-lg col-xs-6">
             </div>
         </div>
+        <!--<div class="input-append date" id="datepicker" data-date="dateValue: Customer.DateOfBirth" data-date-format="dd-mm-yyyy">-->
+            <!--<input class="span2" size="16" type="text" data-bind="value: Customer.DateOfBirth" readonly="readonly" />-->
+            <!--<span class="add-on"><i class="icon-calendar"></i></span>-->
+        <!--</div>-->
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
                 <label for="contactNumber">Contact Number</label>
@@ -200,6 +199,9 @@
 <script src="/majoingun/application/main.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js'></script>
 <script src='/majoingun/js/sweetalert.min.js'></script>
-
+<script src='/majoingun/js/bootstrap-datepicker.js'></script>
+<script>
+    $('#datepicker').datepicker();
+</script>
 </body>
 </html>
