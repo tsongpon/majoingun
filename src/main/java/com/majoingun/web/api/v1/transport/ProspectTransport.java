@@ -2,7 +2,6 @@ package com.majoingun.web.api.v1.transport;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Pattern;
 
@@ -32,8 +31,8 @@ public class ProspectTransport {
     @NotBlank(message = "University cannot be blank")
     private String university;
 
-    @NotEmpty(message = "Please select interested field(s)")
-    private String interestedFields[];
+    @NotBlank(message = "Please select interested field(s)")
+    private String interestedFields;
 
     @NotBlank(message = "Please select intern or permanent")
     private String type;

@@ -32,13 +32,14 @@ public class ProspectController {
             consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> saveNewProspect(@RequestBody @Valid ProspectTransport prospectTransport,
                                              BindingResult result){
+        String errorMessage = "";
         if(result.hasErrors()){
             List<String> errMsgList = new ArrayList<>();
             for(ObjectError err: result.getAllErrors()) {
                 String errorMsg = err.getDefaultMessage();
-                errMsgList.add(errorMsg);
+                errorMessage = errorMessage + errorMsg + "<br>";
             }
-            return new ResponseEntity<>(errMsgList, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
         }
         Prospect prospect = mapper.map(prospectTransport);
         Prospect savedProspect = prospectService.saveNewProspect(prospect);

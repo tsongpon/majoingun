@@ -23,7 +23,7 @@
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');
-
+        //alert(JSON.stringify(data));
         $.ajax({
             type: "POST",
             url: "/api/majoingun/v1/prospects",
