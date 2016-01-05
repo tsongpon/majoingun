@@ -51,7 +51,7 @@
 }
 
 .demo-content h3 {
-    margin-top: 48px;
+    margin-top: 0px;
 }
 
 .demo-footer {
@@ -64,13 +64,17 @@
 
 .snippet-demo {
     padding: 0 10px 40px;
-    display: inherit;
+    display: inline;
 }
 
 /*.mdl-color-text--grey-500 {*/
 /*!*width: inherit;*!*/
 /*text-align: -webkit-center;*/
 /*}*/
+#registerFrm .mdl-cell {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .mdl-textfield__input_other{
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.12);
@@ -92,6 +96,12 @@
     padding-left: 34px;
 }
 
+#registerFrm label {
+    font-size: 16px;
+}
+.mdl-textfield__label {
+    color: #9e9e9e;
+}
 /*!*css dropdown*!*/
 .mdl-select {
     position: relative;
@@ -101,9 +111,8 @@
     width: 300px;
     max-width: 100%;
     margin: 0;
-    padding: 20px 0;
+    padding: 5px 0 15px 0;
 }
-
 .mdl-select__input {
     border: none;
     border-bottom: 1px solid rgba(0,0,0, 0.12);
