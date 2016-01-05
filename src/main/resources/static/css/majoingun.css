@@ -64,7 +64,7 @@
 
 .snippet-demo {
     padding: 0 10px 40px;
-    display: initial;
+    display: inherit;
 }
 
 /*.mdl-color-text--grey-500 {*/
@@ -96,7 +96,7 @@
 .mdl-select {
     position: relative;
     font-size: 16px;
-    display: inline-block;
+    display: inherit;
     box-sizing: border-box;
     width: 300px;
     max-width: 100%;
