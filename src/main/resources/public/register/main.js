@@ -61,7 +61,7 @@
                     });
                 }
             }, error: function (data) {
-                var errMsg = JSON.parse(data.responseText);
+                var errMsg = data.responseText;
 
                 swal({
                     title: "Error!",
