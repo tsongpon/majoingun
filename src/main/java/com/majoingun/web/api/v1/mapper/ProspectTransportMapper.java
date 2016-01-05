@@ -1,6 +1,5 @@
 package com.majoingun.web.api.v1.mapper;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.majoingun.domain.JobFunction;
 import com.majoingun.domain.Prospect;
 import com.majoingun.enumuration.Gender;

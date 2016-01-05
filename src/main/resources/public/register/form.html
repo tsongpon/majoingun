@@ -85,12 +85,12 @@
     </div>
 
     <script id='template' type='text/html'>
-        <form on-submit="submit">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{nameMsg ? 'has-error' : ''}}">
+        <form on-submit="submit" name="registerFrm" id="registerFrm">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="firstname"
-                       value="{{prospect.firstName}}"/>
+                       value="{{prospect.firstName}}" />
                 <label class="mdl-textfield__label" for="firstname">Firstname</label>
-                <span class="validation-message">{{prospect.firstNameMsg}}</span>
+                <!--<span style="color: red">First name is require</span>-->
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z,ก-๙]*" id="lastname"
@@ -113,7 +113,7 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email"
+                <input class="mdl-textfield__input" type="text"  id="email"
                        value="{{prospect.email}}" title="please input valid e-mail address"/>
                 <label class="mdl-textfield__label" for="email">E-mail</label>
             </div>
@@ -150,7 +150,7 @@
                     <span class="mdl-checkbox__label">Software Tester</span>
                 </label>
             </div>
-            <h6>Type</h6>
+            <h6>Register for</h6>
             <div class="snippet-demo">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="intern">
                     <input class="mdl-radio__button" id="intern" name="{{prospect.type}}" type="radio" value="intern">
@@ -178,7 +178,6 @@
     <script src='/majoingun/js/material.min.js'></script>
     <script src='/majoingun/js/sweetalert.min.js'></script>
     <script src='/majoingun/js/moment.min.js'></script>
-    <!--<script src='/majoingun/js/ractive-validator.min.js'></script>-->
     <script src="/majoingun/register/main.js"></script>
 
 </body>
