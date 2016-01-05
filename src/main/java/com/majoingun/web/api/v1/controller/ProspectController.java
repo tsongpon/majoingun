@@ -4,19 +4,16 @@ import com.majoingun.domain.Prospect;
 import com.majoingun.service.ProspectService;
 import com.majoingun.web.api.v1.mapper.ProspectTransportMapper;
 import com.majoingun.web.api.v1.transport.ProspectTransport;
-import com.majoingun.web.transport.ErrorResponseTransport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -32,14 +29,9 @@ public class ProspectController {
             consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> saveNewProspect(@RequestBody @Valid ProspectTransport prospectTransport,
                                              BindingResult result){
-        String errorMessage = "";
+
         if(result.hasErrors()){
-            List<String> errMsgList = new ArrayList<>();
-            for(ObjectError err: result.getAllErrors()) {
-                String errorMsg = err.getDefaultMessage();
-                errorMessage = errorMessage + errorMsg + "<br>";
-            }
-            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(result.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST);
         }
         Prospect prospect = mapper.map(prospectTransport);
         Prospect savedProspect = prospectService.saveNewProspect(prospect);

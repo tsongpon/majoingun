@@ -29,7 +29,7 @@ public class ErrorController {
         log.error("Got exception bad request", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
         //errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponseTransport.setError("All fields are required");
+        errorResponseTransport.setError("Please select interested field(s)");
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         return errorResponseTransport;
     }

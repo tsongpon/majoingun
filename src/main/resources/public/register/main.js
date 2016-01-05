@@ -30,6 +30,7 @@
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "text",
+            cache: false,
             success: function () {
                 swal({
                         title: "Saved!",
@@ -39,13 +40,6 @@
                     function () {
                         location.reload(true);
                     });
-            },
-            error: function () {
-                swal({
-                    title: "Error!",
-                    text: "All fields are required",
-                    type: "error"
-                });
             },
             statusCode: {
                 400: function (data) {
@@ -61,11 +55,19 @@
                     var errMsg = data.responseText;
                     swal({
                         title: "Error!",
-                        text: "<p>Your information was not complete: </p> " + errMsg,
+                        text: "<p>Server error: </p> " + errMsg,
                         html: true,
                         type: "error"
                     });
                 }
+            }, error: function (data) {
+                var errMsg = JSON.parse(data.responseText);
+
+                swal({
+                    title: "Error!",
+                    text: errMsg,
+                    type: "error"
+                });
             }
         });
         event.original.preventDefault();

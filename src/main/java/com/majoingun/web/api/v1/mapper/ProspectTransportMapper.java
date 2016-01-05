@@ -1,6 +1,5 @@
 package com.majoingun.web.api.v1.mapper;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.majoingun.domain.JobFunction;
 import com.majoingun.domain.Prospect;
 import com.majoingun.enumuration.Gender;
@@ -59,7 +58,7 @@ public class ProspectTransportMapper {
             }
             List<JobFunction> jobFunctionList = new ArrayList<>();
             if(!StringUtils.isEmpty(prospectTransport.getInterestedFields())){
-                for(String str: prospectTransport.getInterestedFields().split(",")){
+                for(String str: prospectTransport.getInterestedFields()){
                     JobFunction jobFunction = jobFunctionRepository.findByFunctionName(str);
                     jobFunctionList.add(jobFunction);
                 }
