@@ -33,56 +33,40 @@
     <link rel="stylesheet" href="/majoingun/css/material.min.css">
     <link rel="stylesheet" href="/majoingun/css/majoingun.css">
     <link rel="stylesheet" href="/majoingun/css/sweetalert.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="mdl-layout__container has-scrolling-header">
         <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded"
              data-upgraded=",MaterialLayout">
-            <!--<header class="demo-header mdl-layout__header mdl-layout__header&#45;&#45;scroll mdl-color&#45;&#45;grey-100 mdl-color-text&#45;&#45;grey-800">-->
-                <!--<div class="mdl-layout__header-row">-->
-                    <!--<span class="mdl-layout-title"><img src="/majoingun/images/ABC-LOGO-WHITE-BG.png"></span>-->
-                    <!--<div class="mdl-layout-spacer"></div>-->
-                <!--</div>-->
-            <!--</header>-->
-            <div class="demo-ribbon"></div>
+            <div class="fade-bg"></div>
+            <div class="overlay-bg"></div>
             <main class="demo-main mdl-layout__content">
                 <div class="demo-container mdl-grid">
                     <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
                     <div class="mdl-cell mdl-cell--8-col">
-                        <span class="mdl-layout-title" style="margin: 0px auto; text-align: center;"><img src="/majoingun/images/ABC-LOGO-WHITE-BG.png"></span>
+                        <span class="mdl-layout-title" style="margin: 0px auto; width: 100px; text-align: center;"><img src="/majoingun/images/logo_company_transparent_white.png"></span>
                     </div>
                 </div>
                 <div class="demo-container mdl-grid">
                     <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
                     <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                         <div class="demo-crumbs mdl-color-text--grey-500">
-                            <h3>Registration form</h3>
+                            <h3><span>Welcome,</span> please enter the register form below.</h3>
                             <div id="registerform"></div>
                         </div>
                     </div>
                 </div>
-                <!--<footer class="demo-footer mdl-mini-footer">-->
-                    <!--<div class="mdl-mini-footer&#45;&#45;left-section">-->
-                        <!--<ul class="mdl-mini-footer&#45;&#45;link-list">-->
-                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">Help</a></li>-->
-                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">Privacy and Terms</a></li>-->
-                            <!--<li><a href="http://www.getmdl.io/templates/article/index.html#">User Agreement</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</footer>-->
                 <footer class="mdl-mega-footer">
                     <div class="mdl-mega-footer__bottom-section" style="text-align: center">
                         <p> Unit 1101, 1104, 11th Floor
                             Exchange Tower 388 Sukhumvit Road, Klongtoey,
                             Bangkok 10110, Thailand.
-                        </p>
-                        <p> Phone : +66 (0) 2663 4340
+                        <br/>Phone : +66 (0) 2663 4340
                             Fax : +66 (0) 2663 4339
                             E-mail : contact@abctech-thailand.com
-                        </p>
-                        <p>
-                            Copyright ABCTECH 2015. All Rights Reserve
+                        <br/>Copyright ABCTECH 2015. All Rights Reserve
                         </p>
                     </div>
                 </footer>
@@ -194,10 +178,14 @@
                 </div>
             </div>
 
-            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-right">
+            <div class="mdl-cell mdl-cell--12-col footer-form">
                 <button type="submit"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     Save
+                </button>
+                <button type="button" id="clearBtn"
+                        class="mdl-button mdl-js-button">
+                    Discard
                 </button>
             </div>
         </form>
@@ -209,6 +197,25 @@
     <script src='/majoingun/js/sweetalert.min.js'></script>
     <script src='/majoingun/js/moment.min.js'></script>
     <script src="/majoingun/register/main.js"></script>
+    <script type="text/javascript" src="/majoingun/js/background.cycle.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.fade-bg').backgroundCycle({
+                imageUrls: [
+                    '/majoingun/images/pic1.jpg',
+                    '/majoingun/images/pic2.jpg',
+                    '/majoingun/images/pic3.jpg',
+                    '/majoingun/images/pic4.jpg'
+                ],
+                fadeSpeed: 2000,
+                duration: 5000,
+                backgroundSize: SCALING_MODE_COVER
+            });
+            $("#clearBtn").click(function() {
+                $("#registerFrm").trigger('reset');
+            });
+        });
+    </script>
 
 </body>
 </html>

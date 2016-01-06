@@ -13,23 +13,54 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+html, body {
+    color: #555555;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
 
+.mdl-color--grey-100 {
+    /*background: url('../images/pic1.jpg') no-repeat !important;*/
+    background-size: cover;
+}
+.fade-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    top: 0px;
+    background: black;
+    background-size:cover;
+}
+.overlay-bg {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    top: 0px;
+    background: black;
+    opacity: .7;
+}
 .demo-ribbon {
     width: 100%;
-    height: 40vh;
+    /*height: 40vh;*/
     background-color: #505050;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
 }
 
+.mdl-layout-title img {
+    width: 100px;
+}
+
 .demo-main {
-    margin-top: -35vh;
+    /*margin-top: -35vh;*/
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
 }
-
+.mdl-shadow--4dp {
+    background: 0 5px 40px 0 rgba(0,0,0,0.8),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+}
 .demo-header .mdl-layout__header-row {
     padding-left: 40px;
 }
@@ -42,8 +73,13 @@
 
 .demo-content {
     border-radius: 2px;
-    padding: 40px 56px;
-    margin-bottom: 80px;
+    padding: 40px;
+}
+
+.footer-form {
+    text-align: center;
+    margin: auto 0px;
+    padding-top: 30px;
 }
 
 .demo-layout.is-small-screen .demo-content {
@@ -52,6 +88,11 @@
 
 .demo-content h3 {
     margin-top: 0px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+.demo-content h3 span {
+    font-weight: 700;
 }
 
 .demo-footer {
@@ -67,10 +108,16 @@
     display: inline;
 }
 
-/*.mdl-color-text--grey-500 {*/
-/*!*width: inherit;*!*/
-/*text-align: -webkit-center;*/
-/*}*/
+.mdl-color-text--grey-500 {
+    color: #555555 !important;
+}
+
+.mdl-color--white {
+    background: rgba(255, 255, 255, .9) !important;
+}
+.mdl-mega-footer {
+    background: transparent !important;
+}
 #registerFrm .mdl-cell {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -100,7 +147,7 @@
     font-size: 16px;
 }
 .mdl-textfield__label {
-    color: #9e9e9e;
+    color: #555555;
 }
 /*!*css dropdown*!*/
 .mdl-select {
