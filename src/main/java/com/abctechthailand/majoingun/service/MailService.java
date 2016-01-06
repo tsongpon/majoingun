@@ -69,7 +69,7 @@ public class MailService {
         String mailBody = "";
         try {
             mailBody = FreeMarkerTemplateUtils.processTemplateIntoString(
-                    freeMarkerConfigurationFactory.createConfiguration().getTemplate("pospect_mailtemplate.ftl"), map);
+                    freeMarkerConfigurationFactory.createConfiguration().getTemplate("prospect_mailtemplate.ftl"), map);
         } catch (Exception e) {
           e.printStackTrace();
         }
