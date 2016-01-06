@@ -29,13 +29,44 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        html, body {
+            background: #efefef;
+        }
+        .panel-body {
+            background: #ffffff;
+            border-radius: 3px;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+        }
+        .form-control {
+            border: 1px solid #e0e0e0;
+        }
+        .form-group-lg .form-control {
+            border-radius: 2px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0px 15px;
+        }
+        .form-group-lg select.form-control {
+            height: 35px;
+            line-height: 35px;
+        }
+        label {
+            font-weight: 400;
+            color: #808080;
+        }
+        .form-auto {
+            width: auto !important;
+        }
+    </style>
 </head>
 
 <body>
 <div class="container">
 
     <div class="page-header">
-        <h1>ABC Tech</h1>
+        <h1>Application Form</h1>
     </div>
 
     <!--<div class="panel panel-primary">-->
@@ -64,7 +95,7 @@
         <div class="row">
             <div class="form-group form-group-lg col-xs-6 date" id="datepicker" data-date-format="dd-mm-yyyy">
                 <label for="dateOfBirth">Date of Birth</label>
-                <input type="text" value="{{applicant.dateOfBirth}}" required class="form-control" id="dateOfBirth">
+                <input type="text" value="{{applicant.dateOfBirth}}" required class="form-control form-auto" id="dateOfBirth">
                 <span class="add-on"><i class="icon-calendar"></i></span>
             </div>
             <div class="form-group form-group-lg col-xs-6">
@@ -103,7 +134,7 @@
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
                 <label for="yearOfExperience">Years of Professional Experience</label>
-                <input type="number" class="form-control" value="{{applicant.yearOfExperience}}" id="yearOfExperience">
+                <input type="number" class="form-control form-auto" value="{{applicant.yearOfExperience}}" id="yearOfExperience">
             </div>
             <div class="form-group form-group-lg col-xs-6">
             </div>
@@ -129,6 +160,7 @@
                 <input type="text" value="{{applicant.certificatesOne}}" class="form-control" id="certificatesOne">
             </div>
             <div class="form-group form-group-lg col-xs-6">
+                <input type="file" multiple style="margin-top: 24px;" />
             </div>
         </div>
         <div class="row">
@@ -136,6 +168,7 @@
                 <input type="text" value="{{applicant.certificatesTwo}}" class="form-control" id="certificatesTwo" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
+                <input type="file" multiple />
             </div>
         </div>
         <div class="row">
@@ -143,6 +176,7 @@
                 <input type="text" class="form-control" value="{{applicant.certificatesThree}}" id="certificatesThree" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
+                <input type="file" multiple />
             </div>
         </div>
         <div class="row">
@@ -150,6 +184,7 @@
                 <input type="text" class="form-control" value="{{applicant.certificatesFour}}" id="certificatesFour">
             </div>
             <div class="form-group form-group-lg col-xs-6">
+                <input type="file" multiple />
             </div>
         </div>
 
@@ -159,8 +194,8 @@
                 <input type="text" value="{{applicant.latestSalary}}" class="form-control" id="latestSalary" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <label for="availability">Availability</label>
-                <input type="date" value="{{applicant.availability}}" class="form-control" id="availability" >
+                <label for="availability">Availability Date</label>
+                <input type="date" value="{{applicant.availability}}" class="form-control form-auto" id="availability" >
             </div>
         </div>
 
