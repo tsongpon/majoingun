@@ -20,6 +20,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/majoingun/css/sweetalert.css">
     <link rel="stylesheet" href="/majoingun/css/datepicker.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -33,11 +36,29 @@
         html, body {
             background: #efefef;
         }
+        h2 {
+            font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            margin-top: 0px;
+            margin-bottom: 30px;
+            color: #286090;
+        }
+        .page-header {
+            margin-top: 15px;
+            margin-bottom: 0px;
+        }
+        .motto {
+            font-family: 'Indie Flower', cursive, Helvetica,Arial,sans-serif;
+            float: right;
+            color: #909090;
+            font-size: 18px;
+        }
         .panel-body {
             background: #ffffff;
             border-radius: 3px;
             border: 1px solid #e0e0e0;
             padding: 30px;
+            margin-bottom: 30px;
         }
         .form-control {
             border: 1px solid #e0e0e0;
@@ -59,6 +80,51 @@
         .form-auto {
             width: auto !important;
         }
+        .radio label {
+            position: relative;
+            float: left;
+            margin-right: 20px;
+        }
+        .txt-red {
+            color: red;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .form-group-lg .form-control {
+            font-size: 16px;
+        }
+        .form-sp {
+            position: relative;
+            width: 200px;
+        }
+        .form-sp span {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color: #c0c0c0;
+        }
+        .txt-sub {
+            font-style: italic;
+            color: #808080;
+            font-size: 12px;
+        }
+        fieldset {
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+        legend {
+            border-bottom: 0px;
+            font-size: 14px;
+            margin-bottom: 0px;
+            width: auto;
+            padding: 0 15px;
+            color: #808080;
+        }
+        .btn-lg {
+            border-radius: 2px;
+        }
     </style>
 </head>
 
@@ -66,7 +132,13 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>Application Form</h1>
+        <div class="row">
+            <div class="col-xs-12" style="margin: 0px auto; text-align: center;">
+                <img src="/majoingun/images/ABC-LOGO-WHITE-BG.png">
+
+            </div>
+        </div>
+
     </div>
 
     <!--<div class="panel panel-primary">-->
@@ -83,42 +155,63 @@
 <script id='template' type='text/html'>
     <form on-submit="submit">
         <div class="row">
+            <div class="col-xs-6">
+                <h2>Application Form</h2>
+            </div>
+            <div class="col-xs-6">
+                <span class="motto">" Let fun at work together. "</span>
+            </div>
+        </div>
+        <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="firstName">First name</label>
+                <label for="firstName">First name<span class="txt-red">*</span></label>
                 <input type="text" value="{{applicant.firstName}}" required class="form-control" pattern="[A-Z,a-z,ก-๙]*" id="firstName" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <label for="lastName">Last name</label>
+                <label for="lastName">Last name<span class="txt-red">*</span></label>
                 <input type="text" value="{{applicant.lastName}}" required class="form-control" pattern="[A-Z,a-z,ก-๙]*" id="lastName" >
             </div>
         </div>
         <div class="row">
-            <div class="form-group form-group-lg col-xs-6 date" id="datepicker" data-date-format="dd-mm-yyyy">
-                <label for="dateOfBirth">Date of Birth</label>
-                <input type="text" value="{{applicant.dateOfBirth}}" required class="form-control form-auto" id="dateOfBirth">
-                <span class="add-on"><i class="icon-calendar"></i></span>
-            </div>
             <div class="form-group form-group-lg col-xs-6">
+                <label for="gender">Gender<span class="txt-red">*</span></label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" id="male" value="option1" checked>
+                        Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" id="female" value="option2">
+                        Female
+                    </label>
+                </div>
             </div>
+            <div class="form-group form-group-lg col-xs-6 date" data-date-format="dd-mm-yyyy">
+                <label for="dateOfBirth">Date of Birth<span class="txt-red">*</span></label>
+                <div class="form-sp">
+                    <input type="text" value="{{applicant.dateOfBirth}}" required class="form-control form-auto  datepicker" id="dateOfBirth">
+                    <span class="add-on"><i class="material-icons">date_range</i></span>
+                </div>
+            </div>
+
         </div>
-        <!--<div class="input-append date" id="datepicker" data-date="dateValue: Customer.DateOfBirth" data-date-format="dd-mm-yyyy">-->
-            <!--<input class="span2" size="16" type="text" data-bind="value: Customer.DateOfBirth" readonly="readonly" />-->
-            <!--<span class="add-on"><i class="icon-calendar"></i></span>-->
-        <!--</div>-->
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="contactNumber">Contact Number</label>
+                <label for="contactNumber">Contact Number<span class="txt-red">*</span></label>
                 <input type="text" value="{{applicant.contactNumber}}" required pattern="[0][0-9]{8}|[0][0-9]{9}" class="form-control" id="contactNumber" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <label for="emailAddress">Email Address</label>
+                <label for="emailAddress">Email Address<span class="txt-red">*</span></label>
                 <input type="text" class="form-control" value="{{applicant.emailAddress}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="emailAddress" >
             </div>
+
         </div>
 
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="educationLevel">Education Level</label>
+                <label for="educationLevel">Education Level<span class="txt-red">*</span></label>
                 <select id="educationLevel" value="{{applicant.educationLevel}}" class="form-control">
                     {{#each educationLevelList}}
                     <option value="{{this.id}}">{{this.name}}</option>
@@ -126,14 +219,14 @@
                 </select>
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <label for="major">Major</label>
+                <label for="major">Major<span class="txt-red">*</span></label>
                 <input type="text" value="{{applicant.major}}" class="form-control" id="major" >
             </div>
         </div>
 
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="yearOfExperience">Years of Professional Experience</label>
+                <label for="yearOfExperience">Years of Professional Experience<span class="txt-red">*</span></label>
                 <input type="number" class="form-control form-auto" value="{{applicant.yearOfExperience}}" id="yearOfExperience">
             </div>
             <div class="form-group form-group-lg col-xs-6">
@@ -142,7 +235,7 @@
 
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="interestedJobPosition">Interested Job Function</label>
+                <label for="interestedJobPosition">Interested Job Function<span class="txt-red">*</span></label>
                 <select id="interestedJobPosition" value="{{applicant.interestedJobPosition}}" class="form-control">
                     <option>Please Select</option>
                     {{#each jobPositions}}
@@ -156,11 +249,10 @@
 
         <div class="row">
             <div class="form-group form-group-lg col-xs-6">
-                <label for="certificatesOne">Certificates</label>
+                <label for="certificatesOne">Certificates (if applicable)</label>
                 <input type="text" value="{{applicant.certificatesOne}}" class="form-control" id="certificatesOne">
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <input type="file" multiple style="margin-top: 24px;" />
             </div>
         </div>
         <div class="row">
@@ -168,7 +260,6 @@
                 <input type="text" value="{{applicant.certificatesTwo}}" class="form-control" id="certificatesTwo" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <input type="file" multiple />
             </div>
         </div>
         <div class="row">
@@ -176,7 +267,6 @@
                 <input type="text" class="form-control" value="{{applicant.certificatesThree}}" id="certificatesThree" >
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <input type="file" multiple />
             </div>
         </div>
         <div class="row">
@@ -184,7 +274,6 @@
                 <input type="text" class="form-control" value="{{applicant.certificatesFour}}" id="certificatesFour">
             </div>
             <div class="form-group form-group-lg col-xs-6">
-                <input type="file" multiple />
             </div>
         </div>
 
@@ -193,9 +282,19 @@
                 <label for="latestSalary">Latest Salary</label>
                 <input type="text" value="{{applicant.latestSalary}}" class="form-control" id="latestSalary" >
             </div>
-            <div class="form-group form-group-lg col-xs-6">
-                <label for="availability">Availability Date</label>
-                <input type="date" value="{{applicant.availability}}" class="form-control form-auto" id="availability" >
+            <div class="form-group form-group-lg col-xs-6 date" id="datepicker" data-date-format="dd-mm-yyyy">
+                <label for="availability">Availability Date<span class="txt-red">*</span></label>
+                <div class="form-sp">
+                    <input type="text" value="{{applicant.availability}}" class="form-control form-auto datepicker" id="availability">
+                    <span class="add-on"><i class="material-icons">date_range</i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-group-lg col-xs-12">
+                <label for="introduceMessage">Resume<span class="txt-red">*</span> (format *.zip ,*.rar ,*.doc , *.docx , *.txt, *pdf)</label>
+                <input type="file" multiple />
             </div>
         </div>
 
@@ -211,20 +310,59 @@
                 <label for="source">How did you find out about our job application?</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="source" value="option1" checked>
+                        <input type="radio" name="source" id="source-website" value="option1" checked>
                         ABC Tech website
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="source" value="option2">
+                        <input type="radio" name="source" id="source-employee" value="option2">
                         ABC TEch employee
                     </label>
                 </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="source" id="source-other" value="option2">
+                        Other
+                    </label>
+                </div>
             </div>
+            <div class="col-xs-12">
+                <fieldset>
+                    <legend>Please specify</legend>
+                    <div class="form-group form-group-lg col-xs-12">
+                        <label for="contactName">Name</label>
+                        <input type="text" value=""  class="form-control" pattern="[A-Z,a-z,ก-๙]*" id="contactName" >
+                    </div>
+                    <div class="form-group form-group-lg col-xs-6">
+                        <label for="contactMail">Mail</label>
+                        <input type="email" value=""  class="form-control"  id="contactMail" >
+                    </div>
+                    <div class="form-group form-group-lg col-xs-6">
+                        <label for="contactPhone">Phone</label>
+                        <input type="text" value=""  class="form-control" id="contactPhone" >
+                    </div>
+                </fieldset>
+            </div>
+
+
         </div>
 
-        <button type="submit" class="btn btn-primary btn-lg">Send Application</button>
+        <div class="row">
+            <div class="form-group form-group-lg col-xs-12">
+                <p class="txt-sub"><span class="txt-red">*</span> is required.</p>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="margin: 0px auto; text-align: center;">
+                <button type="submit" class="btn btn-primary btn-lg">Send Application</button>
+                <button type="button" class="btn btn-lg">Clear</button>
+            </div>
+
+        </div>
+
     </form>
 </script>
 
@@ -236,7 +374,7 @@
 <script src='/majoingun/js/sweetalert.min.js'></script>
 <script src='/majoingun/js/bootstrap-datepicker.js'></script>
 <script>
-    $('#datepicker').datepicker();
+    $('.datepicker').datepicker();
 </script>
 </body>
 </html>
