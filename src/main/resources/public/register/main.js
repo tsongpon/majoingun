@@ -1,5 +1,5 @@
 (function () {
-    var universities = ['Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University'];
+    //var universities = ['Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University'];
 
     var ractive = new Ractive({
         el: '#registerform',
@@ -19,7 +19,10 @@
         }
     });
 
-    ractive.set('universitiesList', universities);
+    $.getJSON( "/api/majoingun/v1/universities", function( data ) {
+        //universities = data;
+        ractive.set('universitiesList', data);
+    });
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');

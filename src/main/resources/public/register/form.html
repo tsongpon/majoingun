@@ -133,14 +133,13 @@
                 </div>
             </div>
 
-
             <div class="mdl-grid">
 
                 <div class="mdl-select mdl-js-select mdl-select--floating-label">
                     <select class="mdl-select__input" id="university" value="{{prospect.university}}">
                         <option value=" " disabled selected>University</option>
                         {{#each universitiesList}}
-                        <option value="{{this}}">{{this}}</option>
+                        <option value="{{this.name}}">{{this.name}}</option>
                         {{/each}}
                     </select>
                 </div>

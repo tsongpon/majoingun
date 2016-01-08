@@ -26,3 +26,23 @@ INSERT INTO educationlevel VALUES (6,"High Vocational Certificate");
 INSERT INTO educationlevel VALUES (7,"Bachelor's Degree");
 INSERT INTO educationlevel VALUES (8,"Master's Degree");
 INSERT INTO educationlevel VALUES (9,"Dectorate Degree");
+
+-- University
+INSERT INTO university (name) VALUES ("Maejo University")
+INSERT INTO university (name) VALUES ("Mahasarakham University")
+INSERT INTO university (name) VALUES ("Prince of Songkla University")
+INSERT INTO university (name) VALUES ("Ramkhamhaeng University")
+INSERT INTO university (name) VALUES ("Silpakorn University")
+INSERT INTO university (name) VALUES ("Srinakharinwirot University")
+INSERT INTO university (name) VALUES ("Sukhothai Thammathirat Open University")
+INSERT INTO university (name) VALUES ("Burapha University")
+INSERT INTO university (name) VALUES ("Chiang Mai University")
+INSERT INTO university (name) VALUES ("Chulalongkorn University")
+INSERT INTO university (name) VALUES ("Kasetsart University")
+INSERT INTO university (name) VALUES ("Khon Kaen University")
+INSERT INTO university (name) VALUES ("KMITL")
+INSERT INTO university (name) VALUES ("KMUTNB")
+INSERT INTO university (name) VALUES ("KMUTT")
+INSERT INTO university (name) VALUES ("Mahidol University")
+INSERT INTO university (name) VALUES ("Thammasat University")
+INSERT INTO university (name) VALUES ("Rajabhat Universities")
