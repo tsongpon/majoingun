@@ -1,6 +1,7 @@
-INSERT INTO jobfunction VALUES (1, "Backend Developer");
-INSERT INTO jobfunction VALUES (2, "Frontend Developer");
-INSERT INTO jobfunction VALUES (3, "Software Tester");
+INSERT INTO jobfunction VALUES (1, "Backend Development");
+INSERT INTO jobfunction VALUES (2, "Frontend Development");
+INSERT INTO jobfunction VALUES (3, "Software Testing");
+INSERT INTO jobfunction VALUES (4, "UX/UI");
 
 -- Job position initial Data
 INSERT INTO jobposition VALUES (1, "Junior Java Developer");

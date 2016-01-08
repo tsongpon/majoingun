@@ -33,8 +33,8 @@
             cache: false,
             success: function () {
                 swal({
-                        title: "Saved!",
-                        text: "Your information has been saved successfully.",
+                        title: "Registered",
+                        text: "Thank you for your registration. We will be in touch with you shortly",
                         type: "success"
                     },
                     function () {

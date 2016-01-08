@@ -35,6 +35,7 @@ public class ProspectTransportMapper {
         transport.setEmail(prospect.getEmailAddress());
         transport.setUniversity(prospect.getUniversityName());
         transport.setMobile(prospect.getTelephoneNumber());
+//        prospect.getInterestedJobFunction().stream().map(each -> )
 
         return transport;
     }

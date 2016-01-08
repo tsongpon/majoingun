@@ -562,7 +562,7 @@
                                                                 <tr>
                                                                     <td class="mcnTextContent" style="padding-top:30px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px; word-break: break-all" valign="top">
                                                                         <h1 style="color: #202020; font-family: Helvetica; font-size: 26px; font-style: normal;
-                                                                            line-height: 125%; letter-spacing: normal; text-align: left; display: block; margin: 0; padding: 0;">Dear Khun xxxxx,</h1>
+                                                                            line-height: 125%; letter-spacing: normal; text-align: left; display: block; margin: 0; padding: 0;">Dear Khun ${name},</h1>
 
                                                                         <p style="margin: 10px 0; padding: 0; color: #202020; font-family: Helvetica; font-size: 16px; line-height: 150%; text-align: left;">Thank you for your interest in employment opportunity at ABC Tech.</p>
                                                                         <p style="margin: 10px 0; padding: 0; color: #202020; font-family: Helvetica; font-size: 16px; line-height: 150%; text-align: left;">We are honored that you have considered our company as a prospective employer.</p><br/>
