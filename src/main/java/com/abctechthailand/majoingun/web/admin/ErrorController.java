@@ -23,14 +23,14 @@ public class ErrorController {
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseBody
-    public ErrorResponseTransport handleBadRequestFromSpring(HttpServletResponse response,
+    public String handleBadRequestFromSpring(HttpServletResponse response,
                                                              HttpMessageNotReadableException ex) throws IOException {
         log.error("Got exception bad request", ex);
         ErrorResponseTransport errorResponseTransport = new ErrorResponseTransport();
         //errorResponseTransport.setStatus(HttpStatus.BAD_REQUEST.value());
         errorResponseTransport.setError("All fields are required");
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-        return errorResponseTransport;
+        return "All fields are required";
     }
 
     @ExceptionHandler(MappingException.class)
