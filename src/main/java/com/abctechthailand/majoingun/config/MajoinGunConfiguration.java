@@ -22,8 +22,8 @@ public class MajoinGunConfiguration {
         JavaMailSenderImpl sender = new JavaMailSenderImpl();
         sender.setHost("smtp.gmail.com");
         sender.setPort(587);
-        sender.setUsername("classify.amedia@gmail.com");
-        sender.setPassword("abctechthailand");
+        sender.setUsername("recruit@abctech-thailand.com");
+        sender.setPassword("Interchange21");
 
         Properties sendMailProperties = new Properties();
         sendMailProperties.setProperty("mail.smtp.auth", "true");

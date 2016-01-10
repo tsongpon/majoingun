@@ -1,5 +1,5 @@
 (function () {
-    var universities = ['Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University'];
+    //var universities = ['Silpakorn University', 'Mahidol University', 'Thammasart University', 'KMUTT', 'Chulalongkorn University'];
 
     var ractive = new Ractive({
         el: '#registerform',
@@ -19,7 +19,10 @@
         }
     });
 
-    ractive.set('universitiesList', universities);
+    $.getJSON( "/api/majoingun/v1/universities", function( data ) {
+        //universities = data;
+        ractive.set('universitiesList', data);
+    });
 
     ractive.on('submit', function (event) {
         var data = ractive.get('prospect');
@@ -33,8 +36,8 @@
             cache: false,
             success: function () {
                 swal({
-                        title: "Saved!",
-                        text: "Your information has been saved successfully.",
+                        title: "Registered",
+                        text: "Thank you for your registration. We will be in touch with you shortly.",
                         type: "success"
                     },
                     function () {
@@ -46,7 +49,7 @@
                     var errMsg = data.responseText;
                     swal({
                         title: "Error!",
-                        text: "<p>Your information was not complete: </p> " + errMsg,
+                        text: "<p>Your information is not complete: </p> " + errMsg,
                         html: true,
                         type: "error"
                     });

@@ -28,7 +28,7 @@ html, body {
     height: 100%;
     bottom: 0px;
     top: 0px;
-    background: black;
+    background: url(../images/pic0.jpg) no-repeat;
     background-size:cover;
 }
 .overlay-bg {
@@ -37,7 +37,7 @@ html, body {
     bottom: 0px;
     top: 0px;
     background: black;
-    opacity: .7;
+    opacity: .6;
 }
 .demo-ribbon {
     width: 100%;
@@ -90,9 +90,20 @@ html, body {
     margin-top: 0px;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
+    color: #909090;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+.demo-content h3 .material-icons {
+    font-size: 20px;
+    color: #FF5252;
 }
 .demo-content h3 span {
     font-weight: 700;
+    color: #FF5252;
 }
 
 .demo-footer {
@@ -281,4 +292,38 @@ html, body {
 
 .mdl-select__expandable-holder .mdl-select__label:after {
     bottom: 0;
+}
+
+.mdl-button {
+    letter-spacing: 1px;
+}
+
+.demo-content {
+    padding: 0px;
+}
+.demo-content .header-area {
+    background: #e0e0e0;
+    padding: 20px 40px 20px 40px;
+    border-radius: 2px 2px 0 0;
+}
+.demo-content .content-area {
+    padding: 0px 30px 40px 30px;
+}
+.mdl-mega-footer--bottom-section, .mdl-mega-footer__bottom-section {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* for phone */
+
+@media only screen and (max-width: 568px) {
+    label {
+        display: block !important;
+        padding-bottom: 10px;
+      }
+      .snippet-demo {
+        display: block !important;
+        padding-bottom: 0px;
+      }
 }

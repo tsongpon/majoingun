@@ -44,7 +44,7 @@ public class Prospect implements Serializable {
     @Column(name = "registertime", nullable = false)
     private LocalDateTime registerTime;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="prospect_jobfunction",
             joinColumns=
             @JoinColumn(name="prospect_id", referencedColumnName="id"),
