@@ -74,6 +74,5 @@
             }
         });
         event.original.preventDefault();
-        ractive.set('universitiesList', universities);
     });
 }());
