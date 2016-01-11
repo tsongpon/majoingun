@@ -771,7 +771,7 @@
                                                                 <tr>
                                                                     <td class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;
                                                                         color: #202020; font-family: Helvetica; font-size: 13px; text-align: center;" valign="top">
-                                                                        <em>Copyright © 2015 ABCTECH, All rights reserved.</em>
+                                                                        <em>Copyright © 2016 ABC TECH, All rights reserved.</em>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
