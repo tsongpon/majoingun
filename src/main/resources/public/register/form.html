@@ -128,22 +128,36 @@
             </div>
 
             <div class="mdl-grid">
-
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="university" value="{{prospect.university}}">
-                        <option value=" " disabled selected>University</option>
-                        {{#each universitiesList}}
-                        <option value="{{this.name}}">{{this.name}}</option>
-                        {{/each}}
-                    </select>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="university" value="{{prospect.university}}">
+                            <option value=" " disabled selected>University</option>
+                            {{#each universitiesList}}
+                            <option value="{{this.name}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="year" value="">
+                            <option value=" " selected>Student Year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">More than 4</option>
+                            <option value="0">Graduated</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="mdl-grid">
 
-                <div class="mdl-cell mdl-cell--12-col" style="padding-bottom: 20px; margin-top: 15px;">
+                <div class="mdl-cell mdl-cell--12-col cell-for-select">
 
                     <label>Please select area of interest :</label>
-                    <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left" style="margin-top: 15px;">
+                    <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left cell-for-checkbox-group">
                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backend">
                             <input type="checkbox" id="backend" class="mdl-checkbox__input"
                                    name="{{prospect.interestedFields}}" value="Backend Development">

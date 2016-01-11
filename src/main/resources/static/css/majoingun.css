@@ -37,7 +37,7 @@ html, body {
     bottom: 0px;
     top: 0px;
     background: black;
-    opacity: .6;
+    opacity: .7;
 }
 .demo-ribbon {
     width: 100%;
@@ -99,11 +99,14 @@ html, body {
 }
 .demo-content h3 .material-icons {
     font-size: 20px;
-    color: #FF5252;
+    color: rgb(0,150,136);
 }
 .demo-content h3 span {
     font-weight: 700;
-    color: #FF5252;
+    color: rgb(0,150,136);
+}
+.mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
+    background: rgb(0,150,136);
 }
 
 .demo-footer {
@@ -169,7 +172,7 @@ html, body {
     width: 300px;
     max-width: 100%;
     margin: 0;
-    padding: 5px 0 15px 0;
+    padding: 5px 0 20px 0;
 }
 .mdl-select__input {
     border: none;
@@ -314,16 +317,52 @@ html, body {
     padding-top: 0px;
     padding-bottom: 0px;
 }
+.cell-for-select {
+    padding-bottom: 20px; margin-top: 10px !important;
+}
+
+.cell-for-checkbox-group {
+    margin-top: 15px !important;
+}
 
 /* for phone */
+@media only screen and (max-width: 839px) {
+    .mdl-cell--6-col .mdl-select, .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet .mdl-select {
+        margin-bottom: 20px;
+    }
+    .cell-for-select {
+        margin-top: 0px !important;
+    }
+}
 
 @media only screen and (max-width: 568px) {
     label {
         display: block !important;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
       }
       .snippet-demo {
         display: block !important;
         padding-bottom: 0px;
       }
+    .snippet-demo label {
+        padding-bottom: 0px;
+    }
+    button {
+      margin-bottom: 5px;
+    }
+    .mdl-cell--12-col, .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
+        width: 100%;
+    }
+    .cell-for-checkbox-group {
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .demo-content .header-area {
+        padding: 20px !important;
+    }
+    .demo-content .content-area {
+        padding: 0 10px 20px !important;
+    }
 }
