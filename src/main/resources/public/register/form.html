@@ -154,10 +154,10 @@
             </div>
             <div class="mdl-grid">
 
-                <div class="mdl-cell mdl-cell--12-col" style="padding-bottom: 20px; margin-top: 15px;">
+                <div class="mdl-cell mdl-cell--12-col cell-for-select">
 
                     <label>Please select area of interest :</label>
-                    <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left" style="margin-top: 15px;">
+                    <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left cell-for-checkbox-group">
                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backend">
                             <input type="checkbox" id="backend" class="mdl-checkbox__input"
                                    name="{{prospect.interestedFields}}" value="Backend Development">
@@ -203,7 +203,7 @@
                         Register
                     </button>
                     <button type="reset" id="clearBtn"
-                            class="mdl-button mdl-js-button mdl-cell--12-col-phone" ng-click="">
+                            class="mdl-button mdl-js-button mdl-cell--12-col-phone">
                         Discard
                     </button>
                 </div>
@@ -217,5 +217,15 @@
     <script src='/majoingun/js/sweetalert.min.js'></script>
     <script src='/majoingun/js/moment.min.js'></script>
     <script src="/majoingun/register/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#clearBtn").click(function() {
+                //$("#registerFrm").reset();
+                location.reload(true);
+            });
+        });
+    </script>
+
 </body>
 </html>

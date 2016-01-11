@@ -172,7 +172,7 @@ html, body {
     width: 300px;
     max-width: 100%;
     margin: 0;
-    padding: 5px 0 15px 0;
+    padding: 5px 0 20px 0;
 }
 .mdl-select__input {
     border: none;
@@ -317,8 +317,23 @@ html, body {
     padding-top: 0px;
     padding-bottom: 0px;
 }
+.cell-for-select {
+    padding-bottom: 20px; margin-top: 10px !important;
+}
+
+.cell-for-checkbox-group {
+    margin-top: 15px !important;
+}
 
 /* for phone */
+@media only screen and (max-width: 839px) {
+    .mdl-cell--6-col .mdl-select, .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet .mdl-select {
+        margin-bottom: 20px;
+    }
+    .cell-for-select {
+        margin-top: 0px !important;
+    }
+}
 
 @media only screen and (max-width: 568px) {
     label {
@@ -337,6 +352,9 @@ html, body {
     }
     .mdl-cell--12-col, .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
         width: 100%;
+    }
+    .cell-for-checkbox-group {
+        margin-top: 0px !important;
     }
 }
 
