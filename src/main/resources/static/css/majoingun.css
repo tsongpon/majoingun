@@ -37,7 +37,7 @@ html, body {
     bottom: 0px;
     top: 0px;
     background: black;
-    opacity: .6;
+    opacity: .7;
 }
 .demo-ribbon {
     width: 100%;
@@ -99,11 +99,14 @@ html, body {
 }
 .demo-content h3 .material-icons {
     font-size: 20px;
-    color: #FF5252;
+    color: rgb(0,150,136);
 }
 .demo-content h3 span {
     font-weight: 700;
-    color: #FF5252;
+    color: rgb(0,150,136);
+}
+.mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
+    background: rgb(0,150,136);
 }
 
 .demo-footer {
@@ -320,10 +323,28 @@ html, body {
 @media only screen and (max-width: 568px) {
     label {
         display: block !important;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
       }
       .snippet-demo {
         display: block !important;
         padding-bottom: 0px;
       }
+    .snippet-demo label {
+        padding-bottom: 0px;
+    }
+    button {
+      margin-bottom: 5px;
+    }
+    .mdl-cell--12-col, .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .demo-content .header-area {
+        padding: 20px !important;
+    }
+    .demo-content .content-area {
+        padding: 0 10px 20px !important;
+    }
 }

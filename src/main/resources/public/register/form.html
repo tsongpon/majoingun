@@ -128,14 +128,28 @@
             </div>
 
             <div class="mdl-grid">
-
-                <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" id="university" value="{{prospect.university}}">
-                        <option value=" " disabled selected>University</option>
-                        {{#each universitiesList}}
-                        <option value="{{this.name}}">{{this.name}}</option>
-                        {{/each}}
-                    </select>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="university" value="{{prospect.university}}">
+                            <option value=" " disabled selected>University</option>
+                            {{#each universitiesList}}
+                            <option value="{{this.name}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="year" value="">
+                            <option value=" " selected>Student Year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">More than 4</option>
+                            <option value="0">Graduated</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="mdl-grid">
@@ -189,7 +203,7 @@
                         Register
                     </button>
                     <button type="reset" id="clearBtn"
-                            class="mdl-button mdl-js-button mdl-cell--12-col-phone">
+                            class="mdl-button mdl-js-button mdl-cell--12-col-phone" ng-click="">
                         Discard
                     </button>
                 </div>
@@ -203,14 +217,5 @@
     <script src='/majoingun/js/sweetalert.min.js'></script>
     <script src='/majoingun/js/moment.min.js'></script>
     <script src="/majoingun/register/main.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#clearBtn").click(function() {
-                $("#registerFrm").reset();
-            });
-        });
-    </script>
-
 </body>
 </html>
