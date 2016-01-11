@@ -52,4 +52,7 @@ public class Prospect implements Serializable {
             @JoinColumn(name="jobfunction_id", referencedColumnName="id")
     )
     private List<JobFunction> interestedJobFunction;
+
+    @Column(name = "year", nullable = false)
+    private String year;
 }

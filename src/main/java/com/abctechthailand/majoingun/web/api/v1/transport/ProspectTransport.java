@@ -35,4 +35,7 @@ public class ProspectTransport {
 
     @NotBlank(message = "Please select intern or permanent")
     private String type;
+
+    @NotBlank(message = "Please select year")
+    private String year;
 }

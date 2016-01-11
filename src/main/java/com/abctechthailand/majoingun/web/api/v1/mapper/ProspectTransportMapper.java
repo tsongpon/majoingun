@@ -36,6 +36,7 @@ public class ProspectTransportMapper {
         transport.setUniversity(prospect.getUniversityName());
         transport.setMobile(prospect.getTelephoneNumber());
 //        prospect.getInterestedJobFunction().stream().map(each -> )
+        transport.setYear(prospect.getYear());
 
         return transport;
     }
@@ -73,6 +74,7 @@ public class ProspectTransportMapper {
                 transport.setProspectType(ProspectType.PERMANENT);
             }
             transport.setRegisterTime(LocalDateTime.now());
+            transport.setYear(prospectTransport.getYear());
         }catch (Exception e){
             log.error("Could not read document", e);
             throw new HttpMessageNotReadableException(e.getMessage());
