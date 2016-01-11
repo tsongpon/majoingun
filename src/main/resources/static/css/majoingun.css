@@ -95,7 +95,7 @@ html, body {
     margin-bottom: 0px;
     font-size: 20px;
     text-transform: uppercase;
-    line-height: 20px;
+    line-height: 30px;
 }
 .demo-content h3 .material-icons {
     font-size: 20px;
@@ -364,5 +364,11 @@ html, body {
     }
     .demo-content .content-area {
         padding: 0 10px 20px !important;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    .mdl-cell--12-col, .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
+        width: 100%;
     }
 }
