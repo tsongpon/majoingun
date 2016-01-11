@@ -13,7 +13,8 @@
                 mobile: '',
                 university: '',
                 interestedFields: '',
-                type: ''
+                type: '',
+                year: ''
             }
             //universitiesList: universities
         }
