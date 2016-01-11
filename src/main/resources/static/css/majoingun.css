@@ -102,7 +102,7 @@ html, body {
     color: rgb(0,150,136);
 }
 .demo-content h3 span {
-    font-weight: 700;
+    font-weight: 400;
     color: rgb(0,150,136);
 }
 .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
