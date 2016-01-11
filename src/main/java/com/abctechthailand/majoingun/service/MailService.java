@@ -78,9 +78,9 @@ public class MailService {
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
         try {
-            helper.setFrom("noreply@abctech.io");
+            helper.setFrom("recruit@abctech-thailand.com");
             helper.setTo(prospect.getEmailAddress());
-            helper.setSubject("Welcome to abctech");
+            helper.setSubject("Welcome to ABC Tech");
             message.setContent(mailBody, "text/html; charset=utf-8");
             mailSender.send(message);
         } catch (MessagingException e) {
