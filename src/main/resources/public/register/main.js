@@ -37,7 +37,7 @@
             success: function () {
                 swal({
                         title: "Registered",
-                        text: "Thank you for your registration. We will be in touch with you shortly",
+                        text: "Thank you for your registration. We will be in touch with you shortly.",
                         type: "success"
                     },
                     function () {
@@ -49,7 +49,7 @@
                     var errMsg = data.responseText;
                     swal({
                         title: "Error!",
-                        text: "<p>Your information was not complete: </p> " + errMsg,
+                        text: "<p>Your information is not complete: </p> " + errMsg,
                         html: true,
                         type: "error"
                     });
