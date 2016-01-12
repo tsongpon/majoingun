@@ -11,7 +11,7 @@
                 gender: '',
                 email: '',
                 mobile: '',
-                university: '',
+                university: 'Mahidol University',
                 interestedFields: '',
                 type: '',
                 year: ''
