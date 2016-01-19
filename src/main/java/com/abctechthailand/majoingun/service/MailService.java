@@ -3,6 +3,7 @@ package com.abctechthailand.majoingun.service;
 import com.abctechthailand.majoingun.exception.MajoingunException;
 import com.abctechthailand.majoingun.domain.Applicant;
 import com.abctechthailand.majoingun.domain.Prospect;
+import org.apache.commons.lang3.text.WordUtils;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
@@ -38,7 +39,7 @@ public class MailService {
     @Async
     public void sendMailTo(Applicant applicant) {
         Map<String, Object> map = new HashMap<>();
-        map.put("name", applicant.getFirstName());
+        map.put("name", WordUtils.capitalize(applicant.getFirstName()));
         String mailBody = "";
         try {
             mailBody = FreeMarkerTemplateUtils.processTemplateIntoString(
@@ -65,7 +66,7 @@ public class MailService {
     @Async
     public void sendMailTo(Prospect prospect) {
         Map<String, Object> map = new HashMap<>();
-        map.put("name", prospect.getFirstName());
+        map.put("name", WordUtils.capitalize(prospect.getFirstName()));
         String mailBody = "";
         try {
             mailBody = FreeMarkerTemplateUtils.processTemplateIntoString(
